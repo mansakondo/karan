@@ -46,16 +46,20 @@ def convert_rows_to_yaml(rows, lang = nil)
   hash.to_yaml
 end
 
-def generate_csv_file(path, output)
-  File.open(path + ".csv", "w+") do |f|
+def generate_file(path, output)
+  File.open(path, "w+") do |f|
     f.write output
   end
 end
 
+def generate_csv_file(path, output)
+  path += ".csv" unless path =~ /.csv$/
+  generate_file path, output
+end
+
 def generate_yaml_file(path, output)
-  File.open(path + ".yml", "w+") do |f|
-    f.write output
-  end
+  path += ".yml" unless path =~ /.yml$/
+  generate_file path, output
 end
 
 require "pry"
