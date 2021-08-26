@@ -1,0 +1,136 @@
+Tag,Label
+001,Record Identifier
+003,Persistent Record Identifier
+005,Version Identifier
+010,International Standard Name Identifier (ISNI)
+033,Other System Persistent Record Identifier
+035,Other System Control Numbers
+036,Music Incipit
+050,International Standard Text Code (ISTC)
+051,International Standard Musical Work Code (ISWC)
+052,International Standard Audiovisual Number (ISAN)
+061,International Standard Recording Code (ISRC)
+100,General Processing Data
+101,Language of the Entity
+102,Nationality of the Entity
+106,Coded Data Field: Personal/Corporate/Family Name/Trademark/Printer/Publisher Device Used as Subject Access Point
+120,Coded Data Field: Personal Name
+122,Coded Data Field: Time Period of Work Content
+123,Coded Data Field: Territorial or Geographical Name
+127,"Coded Data Field: Duration of Sound Recordings, Visual Projections, Musical Compositions and Performances"
+128,Coded Data Field: Form of Musical Work and Key or Mode
+150,Coded Data Field: Corporate Name
+152,Rules
+154,Coded Data Field: Title
+160,Geographic Area Code
+200,Authorized Access Point - Personal Name
+210,Authorized Access Point - Corporate Body Name
+215,Authorized Access Point - Territorial or Geographical Name
+216,Authorized Access Point - Trademark
+217,Authorized Access Point - Printer/Publisher Device
+220,Authorized Access Point - Family Name
+230,Authorized Access Point - Title
+231,Authorized Access Point - Title (Work)
+232,Authorized Access Point - Title (Expression) (Provisional)
+235,Authorized Access Point - Collective Title
+240,Authorized Access Point - Name/Title
+241,Authorized Access Point - Name/Title (Work)
+242,Authorized Access Point - Name/Title (Expression)
+243,Authorized Access Point - Conventional Name/Title for Legal and Religious Texts
+245,Authorized Access Point - Name/Collective Title
+250,Authorized Access Point - Topical Subject
+260,"Authorized Access Point - Place and Date of Publication, Performance, Provenance, etc."
+280,"Authorized Access Point - Form, Genre or Physical Characteristics"
+300,Information Note
+305,Textual See Also Reference Note
+310,Textual See Reference Note
+320,General Explanatory Reference Note
+330,General Scope Note
+333,Users/Intended Audience Note
+340,Biography and Activity Note
+341,Activity Note Pertaining to Printer/Publisher
+356,Geographical Note
+400,Variant Access Point - Personal Name
+410,Variant Access Point - Corporate Body Name
+415,Variant Access Point - Territorial or Geographical Name
+416,Variant Access Point - Trademark
+417,Variant Access Point - Printer/Publisher Device
+420,Variant Access Point - Family Name
+423,Variant Access Point - Character
+430,Variant Access Point - Title
+431,Variant Access Point - Title (Work)
+432,Variant Access Point - Title (Expression) (Provisional)
+440,Variant Access Point - Name/Title
+441,Variant Access Point - Name/Title (Work)
+442,Variant Access Point - Name/Title (Expression)
+443,Variant Access Point - Conventional Name/Title for Legal and Religious Texts
+445,Variant Access Point - Name/Collective Title
+450,Variant Access Point - Topical Subject
+460,"Variant Access Point - Place and Date of Publication, Performance, Provenance, etc."
+480,"Variant Access Point - Form, Genre or Physical Characteristics"
+500,Related Access Point - Personal Name
+501,Related Access Point - Personal Name with Responsibility for the Work
+502,Related Access Point - Personal Name for a Contributor Associated with the Expression
+510,Related Access Point - Corporate Body Name
+511,Related Access Point - Corporate Body Name with Responsibility for the Work
+512,Related Access Point - Corporate Body Name for a Contributor Associated with the Expression
+515,Related Access Point - Territorial or Geographical Name
+516,Related Access Point - Trademark
+517,Related Access Point - Printer/Publisher Device
+520,Related Access Point - Family Name
+521,Related Access Point - Family Name with Responsibility for the Work
+522,Related Access Point - Family Name for a Associated with the Expression
+530,Related Access Point - Title
+531,Related Access Point - Title (Work)
+532,Related Access Point - Title (Expression) (Provisional)
+540,Related Access Point - Name/Title
+541,Related Access Point - Name/Title (Work)
+542,Related Access Point - Name/Title (Expression)
+543,Related Access Point - Conventional Name/Title for Legal and Religious Texts
+545,Related Access Point - Name/Collective Title
+550,Related Access Point - Topical Subject
+560,"Related Access Point - Place and Date of Publication, Performance, Provenance, etc."
+580,"Related Access Point - Form, Genre or Physical Characteristics"
+600,Access Point - Personal Name
+601,Subject Access Point - Corporate Body Name
+602,Subject Access Point - Family Name
+606,Subject Access Point - Geographical Name
+610,Subject Access Point - Uncontrolled Subject Terms
+616,Subject Access Point - Trademark
+617,Subject Access Point - Hierarchical Geographical Name
+631,Subject Access Point - Title (Work)
+632,Subject Access Point - Title (Expression)
+640,Place(s) and Date(s) Associated with the Entity
+641,Subject Access Point - Name/Title (Work)
+642,Subject Access Point - Name/Title (Expression)
+675,Universal Decimal Classification (UDC)
+676,Dewey Decimal Classification (DDC)
+680,Library of Congress Classification (LCC)
+686,Other Classification Numbers
+700,Authorized Access Point in Other Language and/or Script - Personal Name
+710,Authorized Access Point in Other Language and/or Script - Corporate Body Name
+715,Authorized Access Point in Other Language and/or Script - Territorial or Geographical Name
+716,Authorized Access Point in Other Language and/or Script - Trademark
+717,Authorized Access Point in Other Language and/or Script - Printer/Publisher Device
+720,Authorized Access Point in Other Language and/or Script - Family Name
+730,Authorized Access Point in Other Language and/or Script - Title
+731,Authorized Access Point in Other Language and/or Script - Title (Work)
+732,Authorized Access Point in Other Language and/or Script - Title (Expression) (Provisional)
+740,Authorized Access Point in Other Language and/or Script - Name/Title
+741,Authorized Access Point in Other Language and/or Script - Name/Title (Work)
+742,Authorized Access Point in Other Language and/or Script - Name/Title (Expression)
+743,Authorized Access Point in Other Language and/or Script - Conventional Name/Title for Legal and Religious Texts
+745,Authorized Access Point in Other Language and/or Script - Name/Collective Title
+750,Authorized Access Point in Other Language and/or Script - Topical Subject
+760,"Authorized Access Point in Other Language and/or Script - Place and Date of Publication, Performance, Provenance, etc."
+780,"Authorized Access Point in Other Language and/or Script - Form, Genre or Physical Characteristics"
+801,Originating Source
+810,Source Data Found
+815,Source Data Not Found
+820,Usage or Scope Information
+825,Example Under Note
+830,General Cataloguer's Note
+835,Deleted Access Point Information
+836,Replaced Access Point Information
+856,Electronic Location and Access
+886,Data not Converted from Source Format

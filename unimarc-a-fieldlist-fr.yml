@@ -1,0 +1,83 @@
+---
+:fr:
+  '001': Identificateur de la notice
+  '005': Identificateur de la version
+  '015': Numéro international normalisé des données d’autorité (ISADN)
+  '035': Identificateur de la notice dans un autre système
+  '100': Données générales de traitement
+  '101': Langue de l’entité
+  '102': Nationalité de l’entité
+  '106': 'Zone de données codées : Nom de personne / Nom de collectivité / Famille
+    / Marque, utilisés comme vedettes matière'
+  '120': 'Zone de données codées : Nom de personne'
+  '123': 'Zone de données codées : Nom de territoire ou nom géographique'
+  '150': 'Zone de données codées : Nom de collectivité'
+  '152': Règles
+  '154': 'Zone de données codées : Titre uniforme'
+  '160': Code d’aire géographique
+  '200': Vedette - Nom de personne
+  '210': Vedette - Nom de collectivité
+  '215': Vedette - Nom de territoire ou nom géographique
+  '216': Vedette - Marque
+  '220': Vedette - Famille
+  '230': Vedette - Titre uniforme
+  '235': Vedette - Rubrique de classement
+  '240': Vedette - Auteur / Titre
+  '245': Vedette - Auteur / Rubrique de classement
+  '250': Vedette - Matière nom commun
+  '260': Vedette - Lieu d'édition
+  '280': Vedette - Forme, genre ou caractéristiques physiques
+  '300': Note d’information
+  '305': Note de renvoi textuel “ Voir aussi ”
+  '310': Note de renvoi textuel “ Voir ”
+  '320': Note de renvoi explicatif
+  '330': Note sur le champ d’application
+  '340': Note sur la biographie et l’activité
+  '356': Note géographique
+  '400': Forme rejetée - Nom de personne
+  '410': Forme rejetée - Nom de collectivité
+  '415': Forme rejetée - Nom de territoire ou nom géographique
+  '416': Forme rejetée - Marque
+  '420': Forme rejetée - Famille
+  '430': Forme rejetée - Titre uniforme
+  '440': Forme rejetée - Auteur / Titre
+  '445': Forme rejetée - Auteur / Rubrique de classement
+  '450': Forme rejetée - Matière nom commun
+  '460': Forme rejetée - Lieu d'édition
+  '480': Forme rejetée - Forme, genre ou caractéristiques physiques
+  '500': Forme associée - Nom de personne
+  '510': Forme associée - Nom de collectivité
+  '515': Forme associée - Nom de territoire ou nom géographique
+  '516': Forme associée - Marque
+  '520': Forme associée - Famille
+  '530': Forme associée - Titre uniforme
+  '540': Forme associée - Auteur / Titre
+  '545': Forme associée - Auteur / Rubrique de classement
+  '550': Forme associée - Matière nom commun
+  '560': Forme associée - Lieu d'édition
+  '580': Forme associée - Forme, genre ou caractéristiques physiques
+  '675': Classification décimale universelle (CDU) (provisoire)
+  '676': Classification décimale Dewey (CDD)
+  '680': Classification de la Bibliothèque du Congrès (LCC)
+  '686': Autres classifications
+  '700': Forme parallèle - Nom de personne
+  '710': Forme parallèle - Nom de collectivité
+  '715': Forme parallèle - Nom de territoire ou nom géographique
+  '716': Forme parallèle - Marque
+  '720': Forme parallèle - Famille
+  '730': Forme parallèle - Titre uniforme
+  '740': Forme parallèle - Auteur / Titre
+  '745': Forme parallèle - Auteur / Rubrique de classement
+  '750': Forme parallèle - Matière nom commun
+  '760': Forme parallèle - Lieu d'édition
+  '780': Forme parallèle - Forme, genre ou caractéristiques physiques
+  '801': Origine de la notice
+  '810': Sources consultées avec profit
+  '815': Sources consultées en vain
+  '820': Information sur l’utilisation ou sur le champ d’application de la vedette
+  '825': Citation dans une autre notice
+  '830': Note générale de travail
+  '835': Information sur les vedettes remplaçant une vedette détruite
+  '836': Information sur les vedettes remplacées
+  '856': Adresse électronique et mode d’accès
+  '886': Données non converties du format source
