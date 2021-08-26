@@ -47,13 +47,13 @@ def convert_rows_to_yaml(rows, lang = nil)
 end
 
 def generate_csv_file(path, output)
-  File.open(path, "w+") do |f|
+  File.open(path + ".csv", "w+") do |f|
     f.write output
   end
 end
 
 def generate_yaml_file(path, output)
-  File.open(path, "w+") do |f|
+  File.open(path + ".yml", "w+") do |f|
     f.write output
   end
 end
