@@ -1,4 +1,5 @@
 require "nokogiri"
+require "csv"
 
 def fetch_unimarc_table_values_from_html
   path = "unimarc_table_of_values.html"
@@ -23,6 +24,10 @@ def fetch_unimarc_table_values_from_html
   end
 
   rows
+end
+
+def convert_rows_to_csv(rows)
+  rows.map { |row| row.to_a.to_csv }.join
 end
 
 require "pry"
