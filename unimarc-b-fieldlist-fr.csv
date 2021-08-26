@@ -1,0 +1,192 @@
+Étiquette,Description
+001,Identifiant de la notice
+003,Identifiant pérenne de la notice
+005,Identifiant de la version
+010,ISBN (International Standard Book Number)
+011,ISSN (International Standard Serial Number)
+012,Empreinte (livre ancien)
+013,ISMN (International Standard Music Number)
+014,Identifiant d’un article de périodique
+015,ISRN (International Standard technical Report Number)
+016,ISRC (International Standard Recording Code)
+017,Autre identifiant normalisé
+018,[Réservé pour d’autres numéros internationaux normalisés]
+020,Numéro de la bibliographie nationale
+021,Numéro de dépôt légal ou de copyright
+022,Numéro de publication officielle
+035,Identifiant de la notice dans un autre système
+036,Incipit (musique)
+040,CODEN
+071,Référence éditoriale
+072,UPC (Universal Product Code)
+073,EAN (International Article Number)
+100,Données générales de traitement
+101,Langue de la ressource
+102,Pays de publication ou de production
+105,Zone de données codées : Ressources textuelles - Monographies
+106,Zone de données codées : Forme de la ressource
+110,Zone de données codées : Ressources continues
+115,"Zone de données codées : Images projetées, enregistrements vidéo et films"
+116,Zone de données codées : Ressources graphiques
+117,Zone de données codées : Objets en trois dimensions naturels ou fabriqués
+120,Zone de données codées : Ressources cartographiques - Généralités
+121,Zone de données codées : Ressources cartographiques - Caractéristiques matérielles
+122,Zone de données codées : Période chronologique couverte par la ressource
+123,Zone de données codées : Ressources cartographiques - Échelle et coordonnées
+124,Zone de données codées : Ressources cartographiques - Catégories particulières de ressources
+125,Zone de données codées : Enregistrements sonores et musique notée
+126,Zone de données codées : Enregistrements sonores - Caractéristiques matérielles
+127,Zone de données codées : Enregistrements sonores et musique notée
+128,Zone de données codées : Forme de l’œuvre musicale et tonalité ou mode
+130,Zone de données codées : Microformes - Caractéristiques matérielles
+131,"Zone de données codées : Ressources cartographiques - Mesures géodésiques, quadrillage et mesures verticales"
+135,Zone de données codées : Ressources électroniques
+140,Zone de données codées : Livres anciens - Généralités
+141,Zone de données codées : Particularités de l’exemplaire
+146,Zone de données codées : Distribution instrumentale et vocale1
+200,Titre et mention de responsabilité
+205,Mention d'édition
+206,Zone  particulière  à  certains  types  de  ressources:  Ressources  cartographiques -  Données mathématiques
+207,Zone particulière à certains types de ressources : Ressources continues - Numérotation
+208,Zone particulière à certains types de ressources : Musique notée - Présentation musicale
+210,"Publication, production, diffusion, etc."
+211,Date de publication prévue
+215,Description matérielle
+225,Collection
+230,Zone particulière à certains types de ressources : Ressources électroniques
+300,Note générale
+301,Note sur les identifiants
+302,Note sur les informations codées
+303,Note générale sur la description bibliographique
+304,Note sur le titre et la mention de responsabilité
+305,Note sur l'édition et l'histoire bibliographique
+306,"Note sur la publication, la production, la diffusion, etc."
+307,Note sur la description matérielle
+308,Note sur la collection
+310,Note sur la reliure et la disponibilité
+311,Note sur les zones de lien
+312,Note sur les titres associés
+313,Note sur l'accès par sujet
+314,Note sur la responsabilité
+315,Note sur l'information propre au type de ressource
+316,Note sur l'exemplaire
+317,Note sur la provenance
+318,Note sur les actions de préservation
+320,Note sur les bibliographies ou les index contenus dans la ressource
+321,"Note sur les index, extraits et citations publiés séparément"
+322,"Note sur le générique (films, vidéogrammes et enregistrements sonores)"
+323,"Note sur les interprètes (films, vidéogrammes et enregistrements sonores)"
+324,Note sur l'original reproduit
+325,Note sur la reproduction
+326,Note sur la périodicité
+327,Note de contenu
+328,Note de thèse ou autre travail universitaire
+330,Résumé ou extrait
+332,Référence bibliographique recommandée pour citer la ressource
+333,Note sur le public destinataire
+334,Note sur les récompenses
+335,Note sur le type de ressource électronique
+336,Note sur la configuration requise (ressources électroniques)
+345,Note sur les modalités d'acquisition
+410,Appartient à la collection
+411,A pour sous-collection
+412,Est un extrait ou un tiré à part de
+413,A pour extrait ou tiré à part
+421,A pour supplément
+422,Est un supplément de
+423,Est publié avec
+424,Est mis à jour par
+425,Met à jour
+430,Suite de
+431,Suite partielle de2
+432,Remplace
+433,Remplace partiellement
+434,Absorbe
+435,Absorbe partiellement
+436,Fusion de
+437,Séparé de
+440,Devient
+441,Devient partiellement
+442,Remplacé par
+443,Remplacé partiellement par
+444,Absorbé par
+445,Absorbé partiellement par
+446,Scindé en… et en…
+447,Fusionne avec… pour former
+448,Redevient
+451,"A pour autre édition, sur le même support"
+452,A pour autre édition sur un support différent
+453,Traduit sous le titre
+454,Est une traduction de
+455,Est une reproduction de
+456,Est reproduit comme
+461,Ensemble
+462,Sous-ensemble
+463,Unité matérielle
+464,Partie composante
+470,Ressource analysée
+481,Est aussi relié dans ce volume
+482,Relié à la suite de
+488,Autre type de relation
+500,Titre uniforme
+501,Rubrique de classement
+503,Titre de forme
+510,Titre parallèle
+511,Faux-titre
+512,Titre de couverture
+513,Titre figurant sur une autre page de titre
+514,Titre de départ
+515,Titre courant
+516,Titre de dos
+517,Autre variante du titre
+518,Graphie moderne du titre
+520,Titre précédent
+530,Titre clé
+531,Titre clé abrégé
+532,Titre développé
+540,Titre ajouté par le catalogueur
+541,Titre traduit ajouté par le catalogueur
+545,Titre de section
+560,Titre artificiel
+600,Vedette matière - Nom de personne
+601,Vedette matière - Nom de collectivité
+602,Vedette matière - Nom de famille
+604,Vedette matière - Auteur/titre
+605,Vedette matière - Titre
+606,Vedette matière - Nom commun
+607,Vedette matière - Nom géographique
+608,"Vedette matière - Forme, genre ou caractéristiques matérielles"
+610,Indexation en vocabulaire libre
+615,Catégorie sujet (provisoire)
+616,Vedette matière - Nom de marque
+617,Vedette matière - Nom géographique hiérarchisé
+620,"Lieu et date de publication, de représentation ou d'enregistrement, etc."
+621,Lieu et date de provenance
+660,Code d'aire géographique
+661,Code de période chronologique
+670,PRECIS
+675,Classification décimale Dewey (CDD)
+676,Classification décimale universelle (CDU)
+680,Classification de la Bibliothèque du Congrès
+686,Autres classifications
+700,Nom de personne - Responsabilité principale
+701,Nom de personne - Autre responsabilité principale
+702,Nom de personne - Responsabilité secondaire
+710,Nom de collectivité - Responsabilité principale
+711,Nom de collectivité - Autre responsabilité principale
+712,Nom de collectivité - Responsabilité secondaire
+720,Nom de famille - Responsabilité principale
+721,Nom de famille - Autre responsabilité principale
+722,Nom de famille - Responsabilité secondaire
+716,Nom de marque
+730,Nom - Responsabilité
+740,Titre de forme pour les textes législatifs et religieux - Responsabilité principale3
+741,Titre de forme pour les textes législatifs et religieux - Autre responsabilité principale
+742,Titre de forme pour les textes législatifs et religieux - Responsabilité secondaire
+801,Source de catalogage
+802,Centre ISSN
+830,Note générale du catalogueur
+850,Etablissement détenteur
+852,Localisation et cote
+856,Adresse électronique et mode d'accès
+886,Données du format source qui n’ont pas été converties
