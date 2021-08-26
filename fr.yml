@@ -1,0 +1,212 @@
+---
+:fr:
+  '001': Record Identifier
+  '003': Persistent Record Identifier
+  '005': Version Identifier
+  '010': International Standard Book Number (ISBN)
+  '011': International Standard Serial Number (ISSN)
+  '012': Fingerprint identifier
+  '013': International Standard Music Number (ISMN)
+  '014': Article identifier
+  '015': International Standard Report Number (ISRN)
+  '016': International Standard Recording Code (ISRC)
+  '017': Other Standard Identifier
+  '018': "[Reserved for other International Standard Numbers]"
+  '020': National Bibliography Number
+  '021': Legal Deposit Number
+  '022': Government Publication Number
+  '033': Other System Persistent Record Identifier
+  '035': Other Systems Control Numbers
+  '036': Music Incipit
+  '040': CODEN
+  '071': Publisher’s Number
+  '072': Universal Product Code (UPC)
+  '073': International Article Number (EAN)
+  '100': General Processing Data
+  '101': Language of the Resource
+  '102': Country of Publication or Production
+  '105': 'Coded Data Field: Textual Language Material, Monographic'
+  '106': 'Coded Data Field: Textual Resource - Form'
+  '110': 'Coded Data Field:  Continuing Resources'
+  '115': 'Coded Data Field: Visual Projections, Video Recordings and Motion Pictures'
+  '116': 'Coded Data Field: Graphics'
+  '117': 'Coded Data Field: Three-dimensional Artefacts and Realia'
+  '120': 'Coded Data Field: Cartographic Materials - General'
+  '121': 'Coded Data Field: Cartographic Materials - Physical Attributes'
+  '122': 'Coded Data Field: Time Period of Resource Content'
+  '123': 'Coded Data Field: Cartographic Resources - Scale and Co-ordinates'
+  '124': 'Coded Data Field: Cartographic Materials - Specific Material Designation'
+  '125': 'Coded Data Field: Sound Recordings and Music'
+  '126': 'Coded Data Field: Sound Recordings - Physical Attributes'
+  '127': 'Coded Data Field: Duration of Sound Recordings and Notated Music'
+  '128': 'Coded Data Field: Form of Musical Work and Key or Mode'
+  '130': 'Coded Data Field: Microforms - Physical Attributes'
+  '131': 'Coded Data Field: Cartographic Materials - Geodetic, Grid and Vertical Measurement'
+  '135': 'Coded Data Field: Electronic Resources'
+  '140': 'Coded Data Field: Antiquarian - General'
+  '141': Coded Data Field - Copy Specific Attributes
+  '146': 'Coded Data Field: Medium of Performance'
+  '181': 'Coded Data Field: Content Form'
+  '182': 'Coded Data Field: Media Type'
+  '183': 'Coded Data Field: Type of Carrier'
+  '200': Title and Statement of Responsibility
+  '203': 'Coded Data Field: Content Form'
+  '205': Edition Statement
+  '206': 'Material Specific Area: Cartographic Resources - Mathematical Data'
+  '207': 'Material Specific Area: Numbering of Continuing Resources'
+  '208': 'Material Specific Area: Printed Music Specific Statement'
+  '210': Publication, Distribution, etc.
+  '211': Projected Publication Date
+  '215': Physical Description
+  '225': Series
+  '230': 'Material Specific Area: Electronic Resource Characteristics'
+  '251': Organization and Arrangement of Materials
+  '300': General Note
+  '301': Notes Pertaining to Identification Numbers
+  '302': Notes Pertaining to Coded Information
+  '303': General Notes Pertaining to Descriptive Information
+  '304': Notes Pertaining to Title and Statement of Responsibility
+  '305': Notes Pertaining to Edition and Bibliographic History
+  '306': Notes Pertaining to Publication, Distribution, etc.
+  '307': Notes Pertaining to Physical Description
+  '308': Notes Pertaining to Series
+  '310': Notes Pertaining to Binding and Availability
+  '311': Notes Pertaining to Linking Fields
+  '312': Notes Pertaining to Related Titles
+  '313': Notes Pertaining to Subject Access
+  '314': Notes Pertaining to Intellectual Responsibility
+  '315': Notes Pertaining to Material (or Type of Publication) Specific Information
+  '316': Note Relating to the Copy in Hand
+  '317': Provenance Note
+  '318': Action Note
+  '320': Internal Bibliographies/Indexes Note
+  '321': External Indexes/Abstracts/References Note
+  '322': Credits Note (Projected and Video Material and Sound Recordings)
+  '323': Cast Note (Projected and Video Material and Sound Recordings)
+  '324': Original Version Note
+  '325': Reproduction Note
+  '326': Frequency Statement Note (Continuing Resources)
+  '327': Contents Note
+  '328': Dissertation (Thesis) Note
+  '330': Summary or Abstract
+  '332': Preferred Citation of Described Materials
+  '333': Users/Intended Audience Note
+  '334': Awards Note
+  '335': Location of Originals/Reproductions
+  '336': Type of Electronic Resource Note
+  '337': System Requirements Note (Electronic Resources)
+  '345': Acquisition Information Note
+  '371': Notes on Information Service Policy
+  '410': Series
+  '443': Superseded in Part by
+  '411': Subseries
+  '444': Absorbed by
+  '412': Source of Excerpt or Offprint
+  '445': Absorbed in Part by
+  '413': Excerpt or Offprint
+  '446': Split into
+  '421': Supplement
+  '447': Merged with xxx to form
+  '422': Parent of Supplement
+  '448': Changed back to
+  '423': Issued with
+  '451': Other Edition in the Same Medium
+  '424': Is Updated by
+  '452': Other Edition in Another Medium
+  '425': Updates
+  '453': Translated as
+  '430': Continues
+  '454': Translation of
+  '431': Continues in Part
+  '455': Reproduction of
+  '432': Supersedes
+  '456': Reproduced as
+  '433': Supersedes in Part
+  '461': Set Level
+  '434': Absorbed
+  '462': Subset Level
+  '435': Absorbed in Part
+  '463': Piece Level
+  '436': Formed by Merger of
+  '464': Piece-Analytic Level
+  '437': Separated From
+  '470': Item reviewed
+  '440': Continued by
+  '481': Also Bound With this Volume
+  '441': Continued in Part by
+  '482': Bound With
+  '442': Superseded by
+  '488': Other Related Works
+  '500': Preferred Access Point
+  '501': Collective Uniform Title
+  '503': Uniform Conventional Heading
+  '506': Preferred Access Point - Identification of a Work
+  '507': Preferred Access Point - Identification of an Expression (Provisional)
+  '510': Parallel Title Proper
+  '511': Half Title
+  '512': Cover Title
+  '513': Added Title-Page Title
+  '514': Caption Title
+  '515': Running Title
+  '516': Spine Title
+  '517': Other Variant Titles
+  '518': Title in Standard Modern Spelling
+  '520': Former Title (Continuing Resources)
+  '530': Key-Title
+  '531': Abbreviated Title (Continuing Resources)
+  '532': Expanded Title
+  '540': Additional Title Supplied by Cataloguer
+  '541': Translated Title Supplied by Cataloguer
+  '545': Section Title
+  '560': Artificial Title
+  '576': Name / Preferred Access Point - Identification of a Work
+  '577': Name / Preferred Access Point - Identification of an Expression (Provisional)
+  '600': Personal Name Used as Subject
+  '601': Corporate Body Name Used as Subject
+  '602': Family Name Used as Subject
+  '604': Name and Title Used as Subject
+  '605': Title Used as Subject
+  '606': Topical Name Used as Subject
+  '607': Geographical Name Used as Subject
+  '608': Form, Genre or Physical Characteristics Heading
+  '610': Uncontrolled Subject Terms
+  '615': Subject Category (Provisional)
+  '616': Trademark Used as Subject
+  '617': Hierarchical Geographical Name used as Subject
+  '620': Place and Date of Publication, Performance, etc
+  '621': Place and Date of Provenance
+  '623': Character
+  '631': Occupation
+  '632': Function
+  '660': Geographic Area Code (GAC)
+  '661': Time Period Code
+  '670': PRECIS
+  '675': Universal Decimal Classification (UDC)
+  '676': Dewey Decimal Classification (DDC)
+  '680': Library of Congress Classification
+  '686': Other Class Numbers
+  '700': Personal Name - Primary Responsibility
+  '701': Personal Name - Alternative Responsibility
+  '702': Personal Name - Secondary Responsibility
+  '703': Personal Name - Provenance or Ownership
+  '710': Corporate Body Name - Primary Responsibility
+  '711': Corporate Body Name - Alternative Responsibility
+  '712': Corporate Body Name - Secondary Responsibility
+  '713': Corporate Body Name - Provenance or Ownership
+  '716': Trademark
+  '720': Family Name - Primary Responsibility
+  '721': Family Name - Alternative Responsibility
+  '722': Family Name - Secondary Responsibility
+  '723': Family Name - Provenance or Ownership
+  '730': Name - Entity Responsible
+  '740': Uniform Conventional Heading for Legal and Religious Texts - Primary Responsibility
+  '741': Uniform Conventional Heading for Legal and Religious Texts - Alternative
+    Responsibility
+  '742': Uniform Conventional Heading for Legal and Religious Texts - Secondary Responsibility
+  '801': Originating Source
+  '802': ISSN Centre
+  '830': General Cataloguer’s Note
+  '850': Holding Institution
+  '852': Location and Call Number
+  '856': Electronic Location and Access
+  '886': Data Not Converted from Source Format
