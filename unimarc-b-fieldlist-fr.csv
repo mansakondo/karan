@@ -1,4 +1,3 @@
-Étiquette,Description
 001,Identifiant de la notice
 003,Identifiant pérenne de la notice
 005,Identifiant de la version
@@ -43,7 +42,7 @@
 135,Zone de données codées : Ressources électroniques
 140,Zone de données codées : Livres anciens - Généralités
 141,Zone de données codées : Particularités de l’exemplaire
-146,Zone de données codées : Distribution instrumentale et vocale1
+146,Zone de données codées : Distribution instrumentale et vocale
 200,Titre et mention de responsabilité
 205,Mention d'édition
 206,Zone  particulière  à  certains  types  de  ressources:  Ressources  cartographiques -  Données mathématiques
@@ -98,7 +97,7 @@
 424,Est mis à jour par
 425,Met à jour
 430,Suite de
-431,Suite partielle de2
+431,Suite partielle de
 432,Remplace
 433,Remplace partiellement
 434,Absorbe
@@ -180,7 +179,7 @@
 722,Nom de famille - Responsabilité secondaire
 716,Nom de marque
 730,Nom - Responsabilité
-740,Titre de forme pour les textes législatifs et religieux - Responsabilité principale3
+740,Titre de forme pour les textes législatifs et religieux - Responsabilité principale
 741,Titre de forme pour les textes législatifs et religieux - Autre responsabilité principale
 742,Titre de forme pour les textes législatifs et religieux - Responsabilité secondaire
 801,Source de catalogage
