@@ -1,24 +1,5 @@
-# README
+# karan
+A free integrated library management system.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+This software is available as open source under the terms of the [GPL-3 license or later](https://opensource.org/licenses/GPL-3.0).
