@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mansakondo/activemodel-embedding.git
-  revision: e6cba797606a7ef50349133dbea8ee8acf6a1328
+  revision: ec7589298694a2aaa6a48175738df618a2bfc16c
   specs:
     activemodel-embedding (0.1.0)
       rails (>= 6.1.4)
