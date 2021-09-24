@@ -1,7 +1,12 @@
 GIT
-  remote: https://github.com/rails/rails.git
-  revision: c7b6d8f1a9bb0fbd81ff382967a6cb5036841218
-  tag: v7.0.0.alpha2
+  remote: https://github.com/mansakondo/activemodel-embedding.git
+  revision: e6cba797606a7ef50349133dbea8ee8acf6a1328
+  specs:
+    activemodel-embedding (0.1.0)
+      rails (>= 6.1.4)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (7.0.0.alpha2)
       actionpack (= 7.0.0.alpha2)
@@ -61,32 +66,6 @@ GIT
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    rails (7.0.0.alpha2)
-      actioncable (= 7.0.0.alpha2)
-      actionmailbox (= 7.0.0.alpha2)
-      actionmailer (= 7.0.0.alpha2)
-      actionpack (= 7.0.0.alpha2)
-      actiontext (= 7.0.0.alpha2)
-      actionview (= 7.0.0.alpha2)
-      activejob (= 7.0.0.alpha2)
-      activemodel (= 7.0.0.alpha2)
-      activerecord (= 7.0.0.alpha2)
-      activestorage (= 7.0.0.alpha2)
-      activesupport (= 7.0.0.alpha2)
-      bundler (>= 1.15.0)
-      railties (= 7.0.0.alpha2)
-      sprockets-rails (>= 2.0.0)
-    railties (7.0.0.alpha2)
-      actionpack (= 7.0.0.alpha2)
-      activesupport (= 7.0.0.alpha2)
-      method_source
-      rake (>= 0.13)
-      thor (~> 1.0)
-      zeitwerk (~> 2.5.0.beta3)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
@@ -145,11 +124,33 @@ GEM
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rails (7.0.0.alpha2)
+      actioncable (= 7.0.0.alpha2)
+      actionmailbox (= 7.0.0.alpha2)
+      actionmailer (= 7.0.0.alpha2)
+      actionpack (= 7.0.0.alpha2)
+      actiontext (= 7.0.0.alpha2)
+      actionview (= 7.0.0.alpha2)
+      activejob (= 7.0.0.alpha2)
+      activemodel (= 7.0.0.alpha2)
+      activerecord (= 7.0.0.alpha2)
+      activestorage (= 7.0.0.alpha2)
+      activesupport (= 7.0.0.alpha2)
+      bundler (>= 1.15.0)
+      railties (= 7.0.0.alpha2)
+      sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    railties (7.0.0.alpha2)
+      actionpack (= 7.0.0.alpha2)
+      activesupport (= 7.0.0.alpha2)
+      method_source
+      rake (>= 0.13)
+      thor (~> 1.0)
+      zeitwerk (~> 2.5.0.beta3)
     rake (13.0.6)
     regexp_parser (2.1.1)
     rubyzip (2.3.2)
@@ -190,6 +191,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activemodel-embedding!
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
@@ -198,7 +200,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   pg (~> 1.1)
   puma (~> 5.0)
-  rails!
+  rails (~> 7.0.0.alpha)
   selenium-webdriver
   stimulus-rails (>= 0.4.0)
   turbo-rails (>= 0.7.11)
