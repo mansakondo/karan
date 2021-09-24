@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.1"
 
-gem "rails", github: "rails/rails", tag: "v7.0.0.alpha2"
+gem "rails", "~> 7.0.0.alpha"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -35,6 +35,8 @@ gem "cssbundling-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
+
+gem "activemodel-embedding", github: "mansakondo/activemodel-embedding", require: "active_model/embedding"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
