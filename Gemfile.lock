@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/mansakondo/activemodel-embedding.git
-  revision: ec7589298694a2aaa6a48175738df618a2bfc16c
-  specs:
-    activemodel-embedding (0.1.0)
-      rails (>= 6.1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,6 +44,8 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.0.0.alpha2)
       activesupport (= 7.0.0.alpha2)
+    activemodel-embedding (0.1.0)
+      rails (>= 6.1.4)
     activerecord (7.0.0.alpha2)
       activemodel (= 7.0.0.alpha2)
       activesupport (= 7.0.0.alpha2)
@@ -191,7 +186,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activemodel-embedding!
+  activemodel-embedding
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
