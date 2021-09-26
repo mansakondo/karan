@@ -4,7 +4,7 @@ class MARC::Record::Field::Subfield
   attribute :code, :string
   attribute :value, :string, default: ""
 
-  def ==(other)
-    attributes == other.attributes
+  def main_attribute
+    code
   end
 end

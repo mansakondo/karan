@@ -1,10 +1,7 @@
 class MARC::Record < ApplicationRecord
   include ActiveModel::Embedding::Associations
 
-  embeds_many :fields
+  embeds_many :fields, collection: "FieldCollection"
 
-  def [](tag)
-    occurences = fields.select { |field| field.tag == tag }
-    occurences.first unless occurences.count > 1
-  end
+  delegate :occurences, :[], :repeated?, :to_h, to: :fields
 end

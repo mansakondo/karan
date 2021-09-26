@@ -6,7 +6,9 @@ class MARC::Record::Field
   attribute :indicator2, :string, default: ""
   attribute :value, :string, default: ""
 
-  embeds_many :subfields
+  embeds_many :subfields, collection: "SubfieldCollection"
+
+  delegate :occurences, :[], :repeated?, :to_h, to: :subfields
 
   def attributes
     if control_field?
@@ -30,12 +32,7 @@ class MARC::Record::Field
     /00\d/ === tag
   end
 
-  def [](code)
-    occurences = subfields.select { |subfield| subfield.code == code }
-    occurences.first unless occurences.count > 1
-  end
-
-  def ==(other)
-    attributes == other.attributes
+  def main_attribute
+    tag
   end
 end
