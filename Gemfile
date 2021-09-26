@@ -36,6 +36,8 @@ gem "cssbundling-rails"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
+gem "rexml"
+
 gem "activemodel-embedding"
 
 group :development, :test do
