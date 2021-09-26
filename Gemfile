@@ -36,7 +36,7 @@ gem "cssbundling-rails"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
-gem "activemodel-embedding", github: "mansakondo/activemodel-embedding", require: "active_model/embedding"
+gem "activemodel-embedding"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
