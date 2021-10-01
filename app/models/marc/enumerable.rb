@@ -24,9 +24,7 @@ module MARC::Enumerable
       index = yield element
 
       if indexes[index]
-        indexes[index] = [indexes[index]] unless indexes[index].is_a? Array
-
-        indexes[index] << element
+        indexes[index] = Array(indexes[index]) << element
       else
         indexes[index] = element
       end
