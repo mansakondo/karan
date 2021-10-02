@@ -1,0 +1,2 @@
+module MARC::RecordsHelper
+end

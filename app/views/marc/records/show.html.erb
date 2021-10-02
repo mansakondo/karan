@@ -1,0 +1,25 @@
+<% @record.fields.each do |field| %>
+  <div>
+    <span><%= field.tag %></span>
+    <% if field.control_field? %>
+      <span><%= field.value %></span>
+    <% else %>
+      <% if field.indicator1.strip.present?  %>
+        <span><%= field.indicator1  %></span>
+      <% else %>
+        <span>#</span>
+      <% end %>
+
+      <% if field.indicator2.strip.present? %>
+        <span><%= field.indicator2  %></span>
+      <% else %>
+        <span>#</span>
+      <% end %>
+
+      <% field.subfields.each do |subfield| %>
+        <span class="font-bold"><%= subfield.code %></span>
+        <span><%= subfield.value %></span>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

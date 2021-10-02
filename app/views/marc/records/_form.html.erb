@@ -1,0 +1,35 @@
+<% if @record.errors.any? %>
+  <ul>
+    <% @record.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @record do |record_form| %>
+  <% @record.fields.each do |field| %>
+    <%= field_set_tag do %>
+      <%= record_form.fields_for :fields, field do |field_fields| %>
+
+        <%= field_fields.label :tag %>
+        <%= field_fields.text_field :tag %>
+
+        <% if field.control_field? %>
+          <%= field_fields.text_field :value %>
+        <% else %>
+          <%= field_fields.text_field :indicator1 %>
+          <%= field_fields.text_field :indicator2 %>
+
+          <%= field_fields.fields_for :subfields do |subfield_fields| %>
+            <%= subfield_fields.label :code %>
+            <%= subfield_fields.text_field :code %>
+            <%= subfield_fields.text_field :value %>
+          <% end %>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= record_form.submit %>
+<% end %>
