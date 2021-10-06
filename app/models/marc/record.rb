@@ -1,5 +1,6 @@
 class MARC::Record < ApplicationRecord
   include ActiveModel::Embedding::Associations
+  include Elasticsearch::Model
 
   embeds_many :fields, collection: "FieldCollection"
 
