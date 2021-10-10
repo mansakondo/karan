@@ -2,22 +2,20 @@ module Catalog
   module MARC::Enumerable
     include Enumerable
 
-    def occurences(value)
-      select { |e| e.main_attribute == value }
-    end
-
     def [](value)
-      matches = occurences(value)
-
-      if matches.count == 1
-        matches.first
-      else
-        matches
-      end
+      occurrences(value).first
     end
 
     def repeated?(value)
-      occurences(value).count > 1
+      occurrences(value).count > 1
+    end
+
+    def occurrences(value)
+      Array(to_h[value])
+    end
+
+    def to_h
+      index_by(&:main_attribute)
     end
 
     def index_by
@@ -30,10 +28,6 @@ module Catalog
           indexes[index] = element
         end
       end
-    end
-
-    def to_h
-      index_by(&:main_attribute)
     end
   end
 end
