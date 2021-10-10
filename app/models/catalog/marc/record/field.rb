@@ -12,22 +12,22 @@ module Catalog
     validates :tag, presence: true, format: { with: /\d{3}/ }
     validates_associated :subfields, unless: :control_field?
 
-    delegate :occurences, :[], :repeated?, :to_h, to: :subfields
+    delegate :[], :to_h, :repeated?, :occurrences, to: :subfields
 
     def attributes
       if control_field?
         {
-          "id": id,
-          "tag": tag,
-          "value": value
+          "id" => id,
+          "tag" => tag,
+          "value" => value
         }
       else
         {
-          "id": id,
-          "tag": tag,
-          "indicator1": indicator1,
-          "indicator2": indicator2,
-          "subfields": subfields,
+          "id" => id,
+          "tag" => tag,
+          "indicator1" => indicator1,
+          "indicator2" => indicator2,
+          "subfields" => subfields
         }
       end
     end
