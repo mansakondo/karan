@@ -52,7 +52,7 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.0.0.alpha2)
       activesupport (= 7.0.0.alpha2)
-    activemodel-embedding (0.2.0)
+    activemodel-embedding (0.3.0)
       rails (>= 6.1.4)
     activerecord (7.0.0.alpha2)
       activemodel (= 7.0.0.alpha2)
