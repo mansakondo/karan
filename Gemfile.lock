@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/zdennis/activerecord-import.git
+  revision: 301bce15e54f3916cbd466633ed0784db150478a
+  branch: activerecord7
+  specs:
+    activerecord-import (1.2.0)
+      activerecord (>= 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -193,7 +201,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stimulus-rails (0.6.1)
+    stimulus-rails (0.7.0)
       rails (>= 6.0.0)
     thor (1.1.0)
     turbo-rails (0.8.1)
@@ -225,6 +233,7 @@ PLATFORMS
 
 DEPENDENCIES
   activemodel-embedding
+  activerecord-import!
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)

@@ -40,11 +40,15 @@ gem "rexml"
 
 gem "activemodel-embedding"
 
-gem "marc"
-gem "zoom"
-
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
+
+gem "marc"
+gem "zoom"
+gem "activerecord-import",
+  github: "zdennis/activerecord-import",
+  branch: "activerecord7",
+  require: false
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
