@@ -2,11 +2,14 @@ class MARC::Record::Field
   include ActiveModel::Embedding::Document
 
   attribute :tag, :string
-  attribute :indicator1, :string, default: ""
-  attribute :indicator2, :string, default: ""
+  attribute :indicator1, :string, default: "#"
+  attribute :indicator2, :string, default: "#"
   attribute :value, :string, default: ""
 
   embeds_many :subfields, collection: "SubfieldCollection"
+
+  validates :tag, presence: true, format: { with: /\d{3}/ }
+  validates_associated :subfields, unless: :control_field?
 
   delegate :occurences, :[], :repeated?, :to_h, to: :subfields
 
