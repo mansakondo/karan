@@ -22,4 +22,12 @@ class Catalog::MARC::RecordTest < ActiveSupport::TestCase
 
     assert record
   end
+
+  test "should resolve accessors according the record format" do
+    marc21_record  = @record
+    unimarc_record = Catalog::MARC::Record.last
+
+    assert marc21_record.title
+    assert unimarc_record.title
+  end
 end
