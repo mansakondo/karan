@@ -2,6 +2,7 @@ module Catalog
   class MARC::Record < ApplicationRecord
     include ActiveModel::Embedding::Associations
     include Elasticsearch::Model
+    include ::Importing
 
     embeds_many :fields, collection: "FieldCollection"
 
