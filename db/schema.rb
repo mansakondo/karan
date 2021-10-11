@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2021_10_12_125303) do
     t.jsonb "fields"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "format", default: 0, null: false
     t.string "marc_recordable_type", null: false
     t.bigint "marc_recordable_id", null: false
-    t.integer "format", default: 0, null: false
     t.index ["marc_recordable_type", "marc_recordable_id"], name: "index_catalog_marc_records_on_marc_recordable"
   end
 
