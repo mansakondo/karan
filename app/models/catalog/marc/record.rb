@@ -14,6 +14,12 @@ module Catalog
     validates :fields, presence: true
     validates_associated :fields
 
-    delegate :occurences, :[], :repeated?, :to_h, to: :fields
+    validates :format, presence: true, inclusion: { in: MARC::FORMATS }
+
+    delegate :at, :to_h, :repeated?, :occurrences, to: :fields
+
+    def as_indexed_json(options = {})
+      as_json(methods: :title)
+    end
   end
 end

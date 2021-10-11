@@ -12,7 +12,7 @@ class Catalog::MARC::RecordTest < ActiveSupport::TestCase
 
   test "#repeated?" do
     assert @record.repeated? "948"
-    assert @record["099"].repeated? "a"
+    assert @record.at("099").repeated? "a"
   end
 
   test "should decode raw MARC data" do

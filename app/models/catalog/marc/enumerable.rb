@@ -6,6 +6,8 @@ module Catalog
       occurrences(value).first
     end
 
+    alias_method :at, :[]
+
     def repeated?(value)
       occurrences(value).count > 1
     end
