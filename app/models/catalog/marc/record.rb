@@ -4,6 +4,8 @@ module Catalog
     include Elasticsearch::Model
     include ::Importing
 
+    include Creation
+
     embeds_many :fields, collection: "FieldCollection"
 
     enum format: { marc21: 0, unimarc: 1 }
