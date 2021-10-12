@@ -64,6 +64,9 @@ group :development do
   # gem "rack-mini-profiler", "~> 2.0"
   # Speed up rails commands in dev on slow machines / big apps. See: https://github.com/rails/spring
   # gem "spring"
+
+  "Use Pry console"
+  gem "pry-rails"
 end
 
 group :test do
