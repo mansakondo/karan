@@ -1,0 +1,6 @@
+#!usr/bin/env ruby
+
+def setup
+  response = Catalog::MARC::Record.search "Sherlock Holmes"
+  response
+end

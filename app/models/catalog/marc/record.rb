@@ -1,11 +1,20 @@
 module Catalog
   class MARC::Record < ApplicationRecord
+    TYPES = %w(
+      Catalog::MARC::Record::BibliographicRecord
+      Catalog::MARC::Record::AuthorityRecord
+    ).freeze
+
     include ActiveModel::Embedding::Associations
     include Elasticsearch::Model
     include ::Importing
 
     include Creation
     include Reading
+
+    delegated_type :marc_recordable,
+      types: TYPES,
+      inverse_of: :marc_record
 
     embeds_many :fields, collection: "FieldCollection"
 

@@ -1,0 +1,12 @@
+#!usr/bin/env ruby
+
+def setup
+  glob  = Rails.root.join("data", "marc_toronto_public_library", "{OL, DATA}.*")
+  files = Dir[glob]
+  file  = files.first
+
+  records = Catalog::MARC::Record.read(file)
+  record  = records.to_a.last
+
+  return record, records, file, files
+end
