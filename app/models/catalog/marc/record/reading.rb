@@ -3,7 +3,7 @@ module Catalog
     extend ActiveSupport::Concern
 
     class_methods do
-      def read(file, format: "marc21", encoding: "UTF-8")
+      def read(file, record_type: :bibliographic, format: "marc21", encoding: "UTF-8")
         reader = ::MARC::Reader.new(file, external_encoding: encoding)
 
         records = []
@@ -12,6 +12,13 @@ module Catalog
           record = new_from_marc(raw, encoding: encoding)
 
           record.format = format
+
+          case record_type
+          when :bibliographic
+            record.marc_recordable = MARC::Record::BibliographicRecord.new
+          when :authority
+            record.marc_recordable = MARC::Record::AuthorityRecord.new
+          end
 
           record.run_callbacks(:save) { false }
 
