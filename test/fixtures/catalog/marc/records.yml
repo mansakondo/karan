@@ -1,6 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 hamlet:
+  marc_recordable_id: 1
+  marc_recordable_type: Catalog::MARC::Record::BibliographicRecord
   leader: "00815nam 2200289 a 4500"
   fields: [
     { "tag": "001", "value": "ocm30152659" },
