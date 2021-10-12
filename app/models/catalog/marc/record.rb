@@ -6,6 +6,8 @@ module Catalog
 
     embeds_many :fields, collection: "FieldCollection"
 
+    enum format: { marc21: 0, unimarc: 1 }
+
     validates :fields, presence: true
     validates_associated :fields
 
