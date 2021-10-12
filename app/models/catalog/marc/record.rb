@@ -5,6 +5,7 @@ module Catalog
     include ::Importing
 
     include Creation
+    include Reading
 
     embeds_many :fields, collection: "FieldCollection"
 
