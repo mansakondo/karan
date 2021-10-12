@@ -40,7 +40,7 @@ gem "rexml"
 
 gem "activemodel-embedding"
 
-gem "marc", github: "mansakondo/ruby-marc", branch: "namespacing"
+gem "marc"
 gem "zoom"
 
 gem "elasticsearch-model"

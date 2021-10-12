@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  namespace :marc do
-    resources :records
+  namespace :catalog do
+    namespace :marc do
+      resources :records
+    end
   end
   get 'hello/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

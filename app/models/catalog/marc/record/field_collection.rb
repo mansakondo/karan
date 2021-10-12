@@ -1,5 +1,5 @@
-class MARC::Record::Field
-  class SubfieldCollection
+module Catalog
+  class MARC::Record::FieldCollection
     include MARC::Enumerable
     include ActiveModel::Embedding::Collecting
   end

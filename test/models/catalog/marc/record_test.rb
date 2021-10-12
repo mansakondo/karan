@@ -1,10 +1,10 @@
 require "test_helper"
 
-class MARC::RecordTest < ActiveSupport::TestCase
-  fixtures "marc/records"
+class Catalog::MARC::RecordTest < ActiveSupport::TestCase
+  fixtures "catalog/marc/records"
 
   setup do
-    @record = marc_records(:hamlet)
+    @record = catalog_marc_records(:hamlet)
   end
 
   test "#repeated?" do
