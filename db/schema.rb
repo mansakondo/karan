@@ -10,16 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_171917) do
+ActiveRecord::Schema.define(version: 2021_10_12_125303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "marc_records", force: :cascade do |t|
+  create_table "catalog_marc_record_authority_records", force: :cascade do |t|
+    t.string "entity_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "catalog_marc_record_bibliographic_records", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "catalog_marc_records", force: :cascade do |t|
     t.string "leader"
     t.jsonb "fields"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "marc_recordable_type", null: false
+    t.bigint "marc_recordable_id", null: false
+    t.integer "format", default: 0, null: false
+    t.index ["marc_recordable_type", "marc_recordable_id"], name: "index_catalog_marc_records_on_marc_recordable"
   end
 
 end
