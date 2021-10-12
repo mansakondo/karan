@@ -3,7 +3,7 @@ module Catalog
     extend ActiveSupport::Concern
 
     class_methods do
-      def read(file, record_type: :bibliographic, format: "marc21", encoding: "UTF-8")
+      def read(file, record_type: :bibliographic, format: "marc21", encoding: "UTF-8", autosave: false)
         reader = ::MARC::Reader.new(file, external_encoding: encoding)
 
         records = []
@@ -20,7 +20,9 @@ module Catalog
             record.marc_recordable = MARC::Record::AuthorityRecord.new
           end
 
-          record.run_callbacks(:save) { false }
+          if autosave == true
+            record.run_callbacks(:save) { false }
+          end
 
           records << record
         end
