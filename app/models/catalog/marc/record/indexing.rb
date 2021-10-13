@@ -7,9 +7,11 @@ module Catalog
 
       def as_indexed_json(options = {})
         if (indexes = mappings.try(:keys))
-          as_json(methods: indexes)
+          options.merge!(methods: indexes)
+
+          as_json(**options)
         else
-          as_json
+          as_json(**options)
         end
       end
 
