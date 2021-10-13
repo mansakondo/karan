@@ -6,7 +6,7 @@ module Catalog
       def read(file, record_type: :bibliographic, format: "marc21", encoding: "UTF-8", autosave: false)
         reader = ::MARC::Reader.new(file, external_encoding: encoding)
 
-        records = []
+        marc_recordables = []
 
         reader.each_raw do |raw|
           record = new_from_marc(raw, encoding: encoding)
@@ -15,19 +15,21 @@ module Catalog
 
           case record_type
           when :bibliographic
-            record.marc_recordable = MARC::Record::BibliographicRecord.new
+            marc_recordable        = MARC::Record::BibliographicRecord.new
+            record.marc_recordable = marc_recordable
           when :authority
-            record.marc_recordable = MARC::Record::AuthorityRecord.new
+            marc_recordable        = MARC::Record::AuthorityRecord.new
+            record.marc_recordable = marc_recordable
           end
 
           if autosave == true
-            record.run_callbacks(:save) { false }
+            record.fields.save
           end
 
-          records << record
+          marc_recordables << marc_recordable
         end
 
-        records.lazy
+        return marc_recordables.lazy
       end
     end
   end
