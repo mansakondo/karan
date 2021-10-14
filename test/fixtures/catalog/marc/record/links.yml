@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  catalog_marc_record: one
+  parent: one
+  child: one
+
+two:
+  catalog_marc_record: two
+  parent: two
+  child: two
