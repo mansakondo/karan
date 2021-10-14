@@ -12,7 +12,7 @@ module Catalog
     validates :tag, presence: true, format: { with: /\d{3}/ }
     validates_associated :subfields, unless: :control_field?
 
-    delegate :[], :to_h, :repeated?, :occurrences, to: :subfields
+    delegate :[], :at, :to_h, :repeated?, :occurrences, to: :subfields
 
     def attributes
       if control_field?
