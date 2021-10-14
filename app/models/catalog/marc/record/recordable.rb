@@ -10,6 +10,8 @@ module Catalog
 
       delegate :format, to: :marc_record
 
+      validates_associated :marc_record
+
       class_eval <<-CODE, __FILE__, __LINE__ + 1
         def mappings
           MAPPINGS[format]
