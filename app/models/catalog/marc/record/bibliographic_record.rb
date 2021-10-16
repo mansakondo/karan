@@ -10,5 +10,9 @@ module Catalog
     }
 
     include MARC::Record::Recordable
+
+    def mappings
+      MAPPINGS[format]
+    end
   end
 end

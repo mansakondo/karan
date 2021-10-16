@@ -12,12 +12,6 @@ module Catalog
 
       validates_associated :marc_record
 
-      class_eval <<-CODE, __FILE__, __LINE__ + 1
-        def mappings
-          MAPPINGS[format]
-        end
-      CODE
-
       def process
         processor.process(marc_record)
       end
