@@ -18,6 +18,10 @@ module Catalog
         end
       CODE
 
+      def process
+        processor.process(marc_record)
+      end
+
       def processor
         "#{namespace}::Processor".constantize
       end
