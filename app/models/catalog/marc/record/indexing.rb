@@ -3,20 +3,18 @@ module Catalog
     extend ActiveSupport::Concern
 
     included do
-      delegate :mappings, to: :marc_recordable
+      delegate :indexes, to: :marc_recordable
 
       def as_indexed_json(options = {})
-        if (indexes = mappings.try(:keys))
-          options.merge!(methods: indexes)
-
-          as_json(**options)
+        if indexes.present?
+          as_json(options.merge!(methods: indexes.keys))
         else
-          as_json(**options)
+          as_json(options)
         end
       end
 
       def method_missing(name, *args, &block)
-        return super unless mappings.try(:has_key?, name)
+        return super unless indexes.has_key?(name)
 
         define_index name
 
@@ -30,7 +28,7 @@ module Catalog
 
         klass.class_eval do
           define_method index do
-            tag, code = mappings[index]
+            tag, code = indexes[index]
 
             return unless (field = at tag)
 
@@ -38,7 +36,7 @@ module Catalog
           end
 
           define_method "#{index}=" do |value|
-            tag, code = mappings[index]
+            tag, code = indexes[index]
 
             return unless (field = at tag)
 

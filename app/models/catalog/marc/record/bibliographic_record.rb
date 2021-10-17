@@ -11,7 +11,7 @@ module Catalog
 
     include MARC::Record::Recordable
 
-    def mappings
+    def indexes
       INDEXES[format]
     end
   end
