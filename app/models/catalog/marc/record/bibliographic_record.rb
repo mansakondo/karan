@@ -1,6 +1,6 @@
 module Catalog
   class MARC::Record::BibliographicRecord < ApplicationRecord
-    MAPPINGS = {
+    INDEXES = {
       "marc21" => {
         title: ["245", "a"]
       },
@@ -12,7 +12,7 @@ module Catalog
     include MARC::Record::Recordable
 
     def mappings
-      MAPPINGS[format]
+      INDEXES[format]
     end
   end
 end
