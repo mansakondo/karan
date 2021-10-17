@@ -1,11 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-MARC::Record.create leader: "00815nam 2200289 a 4500", fields: [
+Catalog::MARC::Record.create leader: "00815nam 2200289 a 4500", fields: [
   { "tag": "001", "value": "ocm30152659" },
   { "tag": "003", "value": "OCoLC" },
   { "tag": "005", "value": "19971028235910.0" },
@@ -28,4 +21,120 @@ MARC::Record.create leader: "00815nam 2200289 a 4500", fields: [
   { "tag": "907", "indicator1": " ", "indicator2": " ", "subfields": [{ "code": "a", "value": ".b108930609" }] },
   { "tag": "948", "indicator1": " ", "indicator2": " ", "subfields": [{ "code": "a", "value": "LTI 2018-07-09" }] },
   { "tag": "948", "indicator1": " ", "indicator2": " ", "subfields": [{ "code": "a", "value": "MARS" }] }
-]
+], marc_recordable: Catalog::MARC::Record::BibliographicRecord.new
+
+batch_size = 1000
+
+progress_callback = -> (rows_size, num_batches, current_batch_number, batch_duration_in_secs) {
+  last_batch = current_batch_number == num_batches
+  remainder  = rows_size.remainder(batch_size)
+
+  inserted = if last_batch && remainder > 0
+    batch_size * (current_batch_number - 1) + remainder
+  else
+    batch_size * current_batch_number
+  end
+
+  left = rows_size - inserted
+
+  puts "Batches inserted: #{current_batch_number}"
+  puts "Records inserted: #{inserted}"
+  puts
+
+  puts "Batches left: #{num_batches - current_batch_number}"
+  puts "Records left: #{left}"
+  puts
+}
+
+puts
+
+marc21_glob   = Rails.root.join("data", "marc_toronto_public_library", "{OL, DATA}.*")
+marc21_files  = Dir[marc21_glob]
+marc21_file   = marc21_files.first
+
+total_time = Benchmark.measure do
+  puts "Decoding MARC21 records..."
+  puts
+
+  marc21_records = Catalog::MARC::Record.read(marc21_file, autosave: true)
+  num_records    = marc21_records.count
+
+  puts "Importing #{num_records} MARC21 records..."
+  puts
+
+  total = nil
+
+  time = Benchmark.measure do
+    result = Catalog::MARC::Record::BibliographicRecord.bulk_import(
+      marc21_records.to_a,
+      batch_size: batch_size,
+      batch_progress: progress_callback,
+      recursive: true
+    )
+
+    total = num_records - result.failed_instances.count
+  end
+
+  puts "#{total} records imported in #{time.real} seconds"
+end
+
+puts "Total time (in secs): #{total_time.real}"
+puts
+
+unimarc_bib_glob   = Rails.root.join("data", "unimarc", "records", "bib", "*")
+unimarc_auth_glob  = Rails.root.join("data", "unimarc", "records", "auth", "*")
+unimarc_bib_files  = Dir[unimarc_bib_glob]
+unimarc_auth_files = Dir[unimarc_auth_glob]
+
+total_time = Benchmark.measure do
+  puts "Decoding UNIMARC records..."
+  puts
+
+  unimarc_bib_files.each do |unimarc_file|
+    total = nil
+
+    time = Benchmark.measure do
+      unimarc_records = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true)
+      num_records     = unimarc_records.count
+
+      puts "Importing #{num_records} UNIMARC bibliographic records..."
+      puts
+
+      result = Catalog::MARC::Record::BibliographicRecord.bulk_import(
+        unimarc_records.to_a,
+        batch_size: batch_size,
+        batch_progress: progress_callback,
+        recursive: true
+      )
+
+      total = num_records - result.failed_instances.count
+    end
+
+    puts "#{total} records imported in #{time.real} seconds"
+  end
+
+  unimarc_auth_files.each do |unimarc_file|
+    total = nil
+
+    time = Benchmark.measure do
+      unimarc_records = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true, record_type: :authority)
+      num_records     = unimarc_records.count
+
+      puts "Importing #{num_records} UNIMARC authority records..."
+      puts
+
+      result = Catalog::MARC::Record::AuthorityRecord.bulk_import(
+        unimarc_records.to_a,
+        batch_size: batch_size,
+        batch_progress: progress_callback,
+        recursive: true
+      )
+
+      total = num_records - result.failed_instances.count
+    end
+
+    puts "#{total} records imported in #{time.real} seconds"
+  end
+end
+
+puts "Total time (in secs): #{total_time.real}"
