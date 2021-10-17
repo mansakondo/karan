@@ -1,6 +1,15 @@
 #!usr/bin/env ruby
 
 def setup
-  response = Catalog::MARC::Record.search "Sherlock Holmes"
+  query = Elasticsearch::DSL::Search.search do
+    query do
+      regexp "fields.value" do
+        value ".*(15061439).*"
+      end
+    end
+  end
+
+  response = Catalog::MARC::Record.search query
+
   response
 end

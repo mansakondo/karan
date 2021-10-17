@@ -42,6 +42,7 @@ gem "activemodel-embedding"
 
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
+gem "elasticsearch-dsl"
 
 gem "marc"
 gem "zoom"

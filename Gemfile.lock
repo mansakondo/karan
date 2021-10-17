@@ -95,6 +95,7 @@ GEM
       elasticsearch-transport (= 7.15.0)
     elasticsearch-api (7.15.0)
       multi_json
+    elasticsearch-dsl (0.1.10)
     elasticsearch-model (7.2.0)
       activesupport (> 3)
       elasticsearch (~> 7)
@@ -244,6 +245,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   cssbundling-rails
+  elasticsearch-dsl
   elasticsearch-model
   elasticsearch-rails
   importmap-rails (>= 0.3.4)
