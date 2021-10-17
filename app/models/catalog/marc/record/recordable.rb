@@ -17,6 +17,18 @@ module Catalog
           MAPPINGS[format]
         end
       CODE
+
+      def processor
+        "#{namespace}::Processor".constantize
+      end
+
+      def validator
+        "#{namespace}::Validator".constantize
+      end
+
+      def namespace
+        "#{self.class}::#{format.upcase}"
+      end
     end
   end
 end
