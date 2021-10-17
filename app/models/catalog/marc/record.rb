@@ -55,5 +55,6 @@ module Catalog
     validates :format, presence: true, inclusion: { in: MARC::FORMATS }
 
     delegate :at, :to_h, :repeated?, :occurrences, to: :fields
+    delegate :process, to: :marc_recordable
   end
 end
