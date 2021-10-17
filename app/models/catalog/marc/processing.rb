@@ -4,6 +4,7 @@ module Catalog
 
     included do
       include Processing
+      include Elasticsearch::DSL
 
       def identify(field)
         field.tag
