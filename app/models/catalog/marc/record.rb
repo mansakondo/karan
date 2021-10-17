@@ -6,7 +6,7 @@ module Catalog
     ).freeze
 
     include ActiveModel::Embedding::Associations
-    include Elasticsearch::Model
+    include Searchable
     include ::Importing
 
     include Creation
