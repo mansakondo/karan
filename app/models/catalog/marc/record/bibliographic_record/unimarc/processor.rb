@@ -3,6 +3,26 @@ module Catalog
     class UNIMARC::Processor
       include MARC::Processing
 
+      def resolve_links_in(field)
+        links = field.occurrences("3")
+
+        links.filter_map do |link|
+          id = link.value
+
+          query = search do
+            query do
+              regexp "fields.value" do
+                value ".*(#{id}).*"
+              end
+            end
+          end
+
+          response = MARC::Record.search query
+
+          response.records.first
+        end
+      end
+
       def on_200(field)
         field.at("a").value
       end
