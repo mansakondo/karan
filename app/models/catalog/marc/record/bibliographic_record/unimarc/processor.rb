@@ -28,27 +28,12 @@ module Catalog
       end
 
       def on_6xx(field)
-        links = field.occurrences("3")
+        targets = resolve_links_in field
 
-        links.each do |link|
-          id = link.value
+        targets.each do |target|
+          subjects = record.subjects
 
-          query = search do
-            query do
-              regexp "fields.value" do
-                value ".*(#{id}).*"
-              end
-            end
-          end
-
-          response = MARC::Record.search query
-          target   = response.records.first
-
-          if target
-            subjects = record.subjects
-
-            subjects << target unless subjects.include? target
-          end
+          subjects << target unless subjects.include? target
         end
 
         field.as_json
