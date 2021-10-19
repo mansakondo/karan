@@ -17,6 +17,18 @@ module Catalog
       types: TYPES,
       inverse_of: :marc_record
 
+    has_many :dependencies,
+      class_name: "Catalog::MARC::Record::Link",
+      foreign_key: "child_id"
+
+    has_many :references,
+      class_name: "Catalog::MARC::Record::Link",
+      foreign_key: "parent_id"
+
+    has_many :parents, through: :dependencies
+
+    has_many :children, through: :references
+
     embeds_many :fields, collection: "FieldCollection"
 
     enum format: { marc21: 0, unimarc: 1 }
