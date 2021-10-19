@@ -29,19 +29,19 @@ module Catalog
 
     has_many :children, through: :references
 
-    has_many :subjects, -> { merge MARC::Record::Link.subjects },
+    has_many :subjects, -> { merge(MARC::Record::Link.subjects).extending LinkExtension },
       through: :dependencies,
       source: :parent
 
-    has_many :objects, -> { merge MARC::Record::Link.subjects },
+    has_many :objects, -> { merge(MARC::Record::Link.subjects).extending LinkExtension },
       through: :references,
       source: :child
 
-    has_many :contributors, -> { merge MARC::Record::Link.contributions },
+    has_many :contributors, -> { merge(MARC::Record::Link.contributions).extending LinkExtension },
       through: :dependencies,
       source: :parent
 
-    has_many :contributions, -> { merge MARC::Record::Link.contributions },
+    has_many :contributions, -> { merge(MARC::Record::Link.contributions).extending LinkExtension },
       through: :references,
       source: :child
 
@@ -61,5 +61,26 @@ module Catalog
     scope :marc21_authority, -> { marc21.merge(catalog_marc_record_authority_records) }
     scope :unimarc_bibliographic, -> { unimarc.merge(catalog_marc_record_bibliographic_records) }
     scope :unimarc_authority, -> { unimarc.merge(catalog_marc_record_authority_records) }
+  end
+end
+
+module LinkExtension
+  def add(*records)
+    owner            = proxy_association.owner
+    reflection       = proxy_association.reflection
+    through          = reflection.options[:through]
+    association_name = reflection.name
+    reference        = owner.public_send(association_name).references_values.first
+    where_values     = owner.public_send(association_name).where_values_hash(reference)
+    linkable_class   = where_values["linkable_type"].constantize
+
+    records.flatten.each do |record|
+      owner.public_send(through).create!(
+        parent: record,
+        linkable: linkable_class.new
+      )
+    end
+
+    load_target
   end
 end
