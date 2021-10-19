@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_160657) do
+ActiveRecord::Schema.define(version: 2021_10_19_092420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,10 @@ ActiveRecord::Schema.define(version: 2021_10_14_160657) do
     t.bigint "parent_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "linkable_type", null: false
+    t.bigint "linkable_id", null: false
     t.index ["child_id"], name: "index_catalog_marc_record_links_on_child_id"
+    t.index ["linkable_type", "linkable_id"], name: "index_catalog_marc_record_links_on_linkable"
     t.index ["parent_id"], name: "index_catalog_marc_record_links_on_parent_id"
   end
 
