@@ -37,6 +37,10 @@ module Catalog
       through: :references,
       source: :child
 
+    has_many :contributors, -> { merge MARC::Record::Link.contributions },
+      through: :dependencies,
+      source: :parent
+
     embeds_many :fields, collection: "FieldCollection"
 
     enum format: { marc21: 0, unimarc: 1 }
