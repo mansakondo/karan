@@ -16,5 +16,10 @@ module Catalog
     delegated_type :linkable,
       types: TYPES,
       inverse_of: :link
+
+    class << self
+      alias subjects catalog_marc_record_link_subjects
+      alias contributions catalog_marc_record_link_contributions
+    end
   end
 end
