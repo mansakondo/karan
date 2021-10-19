@@ -33,7 +33,7 @@ module Catalog
         targets.each do |target|
           subjects = record.subjects
 
-          subjects << target unless subjects.include? target
+          subjects.add(target) unless subjects.include? target
         end
 
         field.as_json
@@ -65,7 +65,7 @@ module Catalog
         targets.each do |target|
           contributors = record.contributors
 
-          contributors << target unless contributors.include? target
+          contributors.add(target) unless contributors.include? target
         end
 
         field.as_json
