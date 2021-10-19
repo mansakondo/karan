@@ -1,2 +1,5 @@
-class Catalog::MARC::Record::Link::Contribution < ApplicationRecord
+module Catalog
+  class MARC::Record::Link::Contribution < ApplicationRecord
+    include MARC::Record::Link::Linkable
+  end
 end
