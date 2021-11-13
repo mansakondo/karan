@@ -29,7 +29,7 @@ module Catalog
           marc_recordables << marc_recordable
         end
 
-        return marc_recordables.lazy
+        return marc_recordables.lazy, record_type_class
       end
     end
   end
