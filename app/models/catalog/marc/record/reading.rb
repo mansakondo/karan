@@ -3,7 +3,7 @@ module Catalog
     extend ActiveSupport::Concern
 
     class_methods do
-      def read(file, record_type: :bibliographic, format: "marc21", encoding: "UTF-8", autosave: false)
+      def read(file, record_type: :bibliographic, format:, encoding: "UTF-8", autosave: false)
         reader = ::MARC::Reader.new(file, external_encoding: encoding)
 
         case record_type
