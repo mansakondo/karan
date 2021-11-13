@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :marc do
       namespace :record do
         get 'import/new'
-        get 'import/create'
+        post 'import/create'
       end
 
       resources :records

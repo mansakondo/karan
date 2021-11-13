@@ -1,2 +1,28 @@
 <h1>Catalog::MARC::Record::Import#new</h1>
-<p>Find me in app/views/catalog/marc/record/import/new.html.erb</p>
+<%= form_with url: catalog_marc_record_import_create_path do |import_form| %>
+  <%= import_form.file_field :file %>
+
+  <div>
+    <%= import_form.label :format, "Format:" %>
+    <%= import_form.select :format, options_for_select([["UNIMARC", "unimarc"], ["MARC21", "marc21"]]) %>
+  </div>
+
+  <div>
+    <%= import_form.label :record_type, "Record type:" %>
+    <%= import_form.select :record_type, options_for_select([["Bibliographic", :bibliographic], ["Authority", :authority]]) %>
+  </div>
+
+  <div>
+    <%= import_form.label :encoding, "Encoding:" %>
+    <%= import_form.select :encoding, options_for_select([["UTF-8", "UTF-8"], ["MARC-8", "MARC-8"]], selected: "UTF-8") %>
+  </div>
+
+  <%= field_set_tag "On duplicate" do %>
+    <%= import_form.radio_button :on_duplicate, :skip %>
+    <%= import_form.label :on_duplicate_skip, "Skip" %>
+    <%= import_form.radio_button :on_duplicate, :update %>
+    <%= import_form.label :on_duplicate_update , "Update"%>
+  <% end %>
+
+  <%= import_form.submit "Upload" %>
+<% end %>
