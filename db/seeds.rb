@@ -21,7 +21,7 @@ Catalog::MARC::Record.create leader: "00815nam 2200289 a 4500", fields: [
   { "tag": "907", "indicator1": " ", "indicator2": " ", "subfields": [{ "code": "a", "value": ".b108930609" }] },
   { "tag": "948", "indicator1": " ", "indicator2": " ", "subfields": [{ "code": "a", "value": "LTI 2018-07-09" }] },
   { "tag": "948", "indicator1": " ", "indicator2": " ", "subfields": [{ "code": "a", "value": "MARS" }] }
-], marc_recordable: Catalog::MARC::Record::BibliographicRecord.new
+], format: "marc21", marc_recordable: Catalog::MARC::Record::BibliographicRecord.new
 
 batch_size = 1000
 
@@ -94,13 +94,13 @@ total_time = Benchmark.measure do
     total = nil
 
     time = Benchmark.measure do
-      unimarc_records = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true)
+      unimarc_records, record_type_class = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true)
       num_records     = unimarc_records.count
 
       puts "Importing #{num_records} UNIMARC bibliographic records..."
       puts
 
-      result = Catalog::MARC::Record::BibliographicRecord.bulk_import(
+      result = record_type_class.bulk_import(
         unimarc_records.to_a,
         batch_size: batch_size,
         batch_progress: progress_callback,
@@ -117,13 +117,13 @@ total_time = Benchmark.measure do
     total = nil
 
     time = Benchmark.measure do
-      unimarc_records = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true, record_type: :authority)
+      unimarc_records, record_type_class = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true, record_type: :authority)
       num_records     = unimarc_records.count
 
       puts "Importing #{num_records} UNIMARC authority records..."
       puts
 
-      result = Catalog::MARC::Record::AuthorityRecord.bulk_import(
+      result = record_type_class.bulk_import(
         unimarc_records.to_a,
         batch_size: batch_size,
         batch_progress: progress_callback,
