@@ -32,7 +32,11 @@ module Catalog
 
             return unless (field = at tag)
 
-            field[code].value
+            if code
+              field[code].value
+            else
+              field.value
+            end
           end
 
           define_method "#{index}=" do |value|
@@ -40,7 +44,11 @@ module Catalog
 
             return unless (field = at tag)
 
-            field[code].value = value
+            if code
+              field[code].value = value
+            else
+              field.value = value
+            end
           end
         end
       end
