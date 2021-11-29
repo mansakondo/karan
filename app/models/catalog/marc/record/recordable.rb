@@ -16,8 +16,16 @@ module Catalog
         processor.process(marc_record)
       end
 
+      def index(field_or_fields, collection: false)
+        indexer.index(marc_record, field_or_fields, collection: collection)
+      end
+
       def processor
         "#{namespace}::Processor".constantize
+      end
+
+      def indexer
+        "#{namespace}::Indexer".constantize
       end
 
       def validator

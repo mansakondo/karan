@@ -29,19 +29,19 @@ module Catalog
 
     has_many :children, through: :references
 
-    has_many :subjects, -> { merge(MARC::Record::Link.subjects).extending LinkExtension },
+    has_many :subject_links, -> { merge(MARC::Record::Link.subjects).extending LinkExtension },
       through: :dependencies,
       source: :parent
 
-    has_many :objects, -> { merge(MARC::Record::Link.subjects).extending LinkExtension },
+    has_many :object_links, -> { merge(MARC::Record::Link.subjects).extending LinkExtension },
       through: :references,
       source: :child
 
-    has_many :contributors, -> { merge(MARC::Record::Link.contributions).extending LinkExtension },
+    has_many :contributor_links, -> { merge(MARC::Record::Link.contributions).extending LinkExtension },
       through: :dependencies,
       source: :parent
 
-    has_many :contributions, -> { merge(MARC::Record::Link.contributions).extending LinkExtension },
+    has_many :contribution_links, -> { merge(MARC::Record::Link.contributions).extending LinkExtension },
       through: :references,
       source: :child
 
@@ -55,7 +55,7 @@ module Catalog
     validates :format, presence: true, inclusion: { in: MARC::FORMATS }
 
     delegate :at, :to_h, :repeated?, :occurrences, to: :fields
-    delegate :process, to: :marc_recordable
+    delegate :process, :index, to: :marc_recordable
 
     class << self
       alias bibliographic catalog_marc_record_bibliographic_records

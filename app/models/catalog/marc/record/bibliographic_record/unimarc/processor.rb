@@ -31,7 +31,7 @@ module Catalog
         targets = resolve_links_in field
 
         targets.each do |target|
-          subjects = record.subjects
+          subjects = record.subject_links
 
           subjects.add(target) unless subjects.include? target
         end
@@ -63,7 +63,7 @@ module Catalog
         targets = resolve_links_in field
 
         targets.each do |target|
-          contributors = record.contributors
+          contributors = record.contributor_links
 
           contributors.add(target) unless contributors.include? target
         end
