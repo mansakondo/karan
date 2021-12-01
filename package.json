@@ -2,6 +2,8 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.0",
     "autoprefixer": "^10.3.5",
     "esbuild": "^0.14.1",
     "esbuild-plugin-import-glob": "^0.1.1",
