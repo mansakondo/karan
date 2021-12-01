@@ -133,6 +133,8 @@ GEM
       rails (>= 6.0.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jsbundling-rails (0.2.1)
+      railties (>= 6.0.0)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -253,6 +255,7 @@ DEPENDENCIES
   elasticsearch-rails
   importmap-rails (>= 0.3.4)
   jbuilder (~> 2.7)
+  jsbundling-rails
   marc
   pg (~> 1.1)
   pry-rails

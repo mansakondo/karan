@@ -21,7 +21,7 @@ gem "jbuilder", "~> 2.7"
 # gem "redis", "~> 4.0"
 
 # Use JavaScript bundler
-# gem "jsbundling-rails"
+gem "jsbundling-rails"
 # Use CSS bundler
 gem "cssbundling-rails"
 # Use Tailwind CSS. See: https://github.com/rails/tailwindcss-rails
