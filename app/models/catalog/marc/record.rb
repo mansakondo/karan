@@ -57,6 +57,11 @@ module Catalog
     delegate :at, :to_h, :repeated?, :occurrences, to: :fields
     delegate :process, to: :marc_recordable
 
+    class << self
+      alias bibliographic catalog_marc_record_bibliographic_records
+      alias authority catalog_marc_record_authority_records
+    end
+
     scope :marc21_bibliographic, -> { marc21.merge(catalog_marc_record_bibliographic_records) }
     scope :marc21_authority, -> { marc21.merge(catalog_marc_record_authority_records) }
     scope :unimarc_bibliographic, -> { unimarc.merge(catalog_marc_record_bibliographic_records) }
