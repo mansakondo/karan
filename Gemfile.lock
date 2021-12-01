@@ -218,6 +218,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8)
+    view_component (2.45.0)
+      activesupport (>= 5.0.0, < 8.0)
+      method_source (~> 1.0)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -260,6 +263,7 @@ DEPENDENCIES
   stimulus-rails (>= 0.4.0)
   turbo-rails (>= 0.7.11)
   tzinfo-data
+  view_component
   web-console (>= 4.1.0)
   webdrivers
   zoom
