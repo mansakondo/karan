@@ -1,1 +1,3 @@
-<div>Add Facets template here</div>
+<% aggregations.each do |name, aggregation| %>
+  <%= render FacetComponent.new name: name, aggregation: aggregation %>
+<% end %>

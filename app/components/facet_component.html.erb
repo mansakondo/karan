@@ -1,1 +1,29 @@
-<div data-controller="facet-component">Add Facet template here</div>
+<% if nested? %>
+  <%= render FacetComponent.new name: name, aggregation: entry %>
+<% else %>
+  <%= field_set_tag (name.capitalize if root?), **fieldset_attributes do %>
+    <% buckets.each do |bucket| %>
+      <% if has_child? bucket %>
+        <div data-controller="facet-component">
+          <%= hidden_field_tag "filter_by[#{name}][path]", path, form: :search if path %>
+          <%= check_box_tag "filter_by[#{name}][entries][][#{field}]", bucket[:key], false, data: { action: "click->facet-component#toggleChildren" }, form: :search %>
+          <%= label_tag "filter_by[#{name}][entries][][#{field}]", labelize(bucket), form: :search %>
+
+          <% if root? %>
+            <%= render FacetComponent.new name: name, aggregation: bucket[:child], root: false, root_entry: bucket[:key], root_field: field %>
+          <% else %>
+            <%= render FacetComponent.new name: name, aggregation: bucket[:child], root: false, root_entry: @root_entry, root_field: @root_field %>
+          <% end %>
+        </div>
+      <% else %>
+        <div>
+          <%= hidden_field_tag "filter_by[#{name}][path]", path, form: :search if path %>
+          <%= hidden_field_tag "filter_by[#{name}][entries][][#{@root_field}]", @root_entry, form: :search unless root? %>
+          <%= check_box_tag "filter_by[#{name}][entries][][#{field}]", bucket[:key], false, form: :search %>
+          <%= label_tag "filter_by[#{name}][entries][][#{field}]", labelize(bucket), form: :search %>
+        </div>
+      <% end %>
+
+    <% end %>
+  <% end %>
+<% end %>
