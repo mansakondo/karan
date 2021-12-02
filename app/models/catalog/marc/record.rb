@@ -66,6 +66,28 @@ module Catalog
     scope :marc21_authority, -> { marc21.merge(catalog_marc_record_authority_records) }
     scope :unimarc_bibliographic, -> { unimarc.merge(catalog_marc_record_bibliographic_records) }
     scope :unimarc_authority, -> { unimarc.merge(catalog_marc_record_authority_records) }
+
+    mapping do
+      indexes :genre do
+        indexes :entry, fields: { raw: { type: :keyword }}
+        indexes :level1, fields: { raw: { type: :keyword }}
+        indexes :level2, fields: { raw: { type: :keyword }}
+        indexes :level3, fields: { raw: { type: :keyword }}
+        indexes :level4, fields: { raw: { type: :keyword }}
+      end
+
+      indexes :subjects, type: :nested do
+        indexes :entry, fields: { raw: { type: :keyword }}
+        indexes :level1, fields: { raw: { type: :keyword }}
+        indexes :level2, fields: { raw: { type: :keyword }}
+        indexes :level3, fields: { raw: { type: :keyword }}
+        indexes :level4, fields: { raw: { type: :keyword }}
+      end
+
+      indexes :authors, type: :nested do
+        indexes :entry, fields: { raw: { type: :keyword }}
+      end
+    end
   end
 end
 
