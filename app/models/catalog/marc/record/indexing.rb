@@ -23,23 +23,23 @@ module Catalog
 
       private
 
-      def define_index(index)
-        tag_or_tags, options = indexes[index]
+      def define_index(name)
+        tag_or_tags, options = indexes[name]
 
         collection = options.try(:fetch, :collection) || false
 
         if tag_or_tags.respond_to? :each
           tags = tag_or_tags
 
-          define_composite_index index, tags, collection: collection
+          define_composite_index name, tags, collection: collection
         else
           tag = tag_or_tags
 
-          define_regular_index index, tag, collection: collection
+          define_regular_index name, tag, collection: collection
         end
       end
 
-      def define_regular_index(index, tag, collection: false)
+      def define_regular_index(name, tag, collection: false)
         if collection
           fields = occurrences tag
 
@@ -54,10 +54,10 @@ module Catalog
           value = index field
         end
 
-        define_index_method index, value
+        define_index_method name, value
       end
 
-      def define_composite_index(index, tags, collection: false)
+      def define_composite_index(name, tags, collection: false)
         if collection
           fields = tags.map { |tag| occurrences tag }.flatten!
           value  = index fields, collection: true
@@ -66,12 +66,12 @@ module Catalog
           value  = index(fields).join(" ")
         end
 
-        define_index_method index, value
+        define_index_method name, value
       end
 
-      def define_index_method(index, value)
+      def define_index_method(name, value)
         instance_eval <<-CODE, __FILE__, __LINE__ + 1
-          def #{index}
+          def #{name}
             eval <<-STRING
               #{value.inspect}
             STRING
