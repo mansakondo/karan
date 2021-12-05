@@ -4,7 +4,7 @@ module Catalog
     end
 
     def create
-      file, format, record_type, encoding = import_params.values
+      file, format, record_type, encoding, on_duplicate = import_params.values
 
       unless file.respond_to? :tempfile
         render :new
@@ -17,7 +17,8 @@ module Catalog
           format: format,
           record_type: record_type.to_sym,
           encoding: encoding,
-          autosave: true
+          autosave: true,
+          on_duplicate: on_duplicate
         )
 
       result  = record_type_class.bulk_import(
@@ -32,7 +33,7 @@ module Catalog
     private
 
     def import_params
-      params.permit(:file, :format, :record_type, :encoding)
+      params.permit(:file, :format, :record_type, :encoding, :on_duplicate)
     end
   end
 end

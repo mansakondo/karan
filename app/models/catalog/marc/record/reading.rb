@@ -3,7 +3,7 @@ module Catalog
     extend ActiveSupport::Concern
 
     class_methods do
-      def read(file, record_type: :bibliographic, format:, encoding: "UTF-8", autosave: false)
+      def read(file, record_type: :bibliographic, format:, encoding: "UTF-8", autosave: false, on_duplicate: "skip")
         reader = ::MARC::Reader.new(file, external_encoding: encoding)
 
         case record_type
@@ -21,6 +21,31 @@ module Catalog
 
           record.format          = format
           record.marc_recordable = marc_recordable
+
+          original_id = record.at("001").value
+
+          duplicate_detection_query = Elasticsearch::DSL::Search.search do
+            query do
+              term "fields.value.keyword" => original_id
+            end
+          end
+
+          response  = search duplicate_detection_query
+          duplicate = response.records.first
+
+          if duplicate
+            case on_duplicate
+            when "update"
+              duplicate.assign_attributes(
+                leader: record.leader,
+                fields: record.fields
+              )
+
+              next
+            else
+              next
+            end
+          end
 
           if autosave == true
             record.fields.save

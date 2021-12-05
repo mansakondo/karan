@@ -48,39 +48,39 @@ progress_callback = -> (rows_size, num_batches, current_batch_number, batch_dura
 
 puts
 
-marc21_glob   = Rails.root.join("data", "marc_toronto_public_library", "{OL, DATA}.*")
-marc21_files  = Dir[marc21_glob]
-marc21_file   = marc21_files.first
-
-total_time = Benchmark.measure do
-  puts "Decoding MARC21 records..."
-  puts
-
-  marc21_records, record_type_class = Catalog::MARC::Record.read(marc21_file, format: :marc21, autosave: true)
-
-  num_records = marc21_records.count
-
-  puts "Importing #{num_records} MARC21 records..."
-  puts
-
-  total = nil
-
-  time = Benchmark.measure do
-    result = record_type_class.bulk_import(
-      marc21_records.to_a,
-      batch_size: batch_size,
-      batch_progress: progress_callback,
-      recursive: true
-    )
-
-    total = num_records - result.failed_instances.count
-  end
-
-  puts "#{total} records imported in #{time.real} seconds"
-end
-
-puts "Total time (in secs): #{total_time.real}"
-puts
+# marc21_glob   = Rails.root.join("data", "marc_toronto_public_library", "{OL, DATA}.*")
+# marc21_files  = Dir[marc21_glob]
+# marc21_file   = marc21_files.first
+#
+# total_time = Benchmark.measure do
+#   puts "Decoding MARC21 records..."
+#   puts
+#
+#   marc21_records, record_type_class = Catalog::MARC::Record.read(marc21_file, format: :marc21, autosave: true)
+#
+#   num_records = marc21_records.count
+#
+#   puts "Importing #{num_records} MARC21 records..."
+#   puts
+#
+#   total = nil
+#
+#   time = Benchmark.measure do
+#     result = record_type_class.bulk_import(
+#       marc21_records.to_a,
+#       batch_size: batch_size,
+#       batch_progress: progress_callback,
+#       recursive: true
+#     )
+#
+#     total = num_records - result.failed_instances.count
+#   end
+#
+#   puts "#{total} records imported in #{time.real} seconds"
+# end
+#
+# puts "Total time (in secs): #{total_time.real}"
+# puts
 
 unimarc_bib_glob   = Rails.root.join("data", "unimarc", "records", "bib", "*")
 unimarc_auth_glob  = Rails.root.join("data", "unimarc", "records", "auth", "*")
