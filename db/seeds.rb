@@ -56,8 +56,9 @@ total_time = Benchmark.measure do
   puts "Decoding MARC21 records..."
   puts
 
-  marc21_records = Catalog::MARC::Record.read(marc21_file, autosave: true)
-  num_records    = marc21_records.count
+  marc21_records, record_type_class = Catalog::MARC::Record.read(marc21_file, format: :marc21, autosave: true)
+
+  num_records = marc21_records.count
 
   puts "Importing #{num_records} MARC21 records..."
   puts
@@ -65,7 +66,7 @@ total_time = Benchmark.measure do
   total = nil
 
   time = Benchmark.measure do
-    result = Catalog::MARC::Record::BibliographicRecord.bulk_import(
+    result = record_type_class.bulk_import(
       marc21_records.to_a,
       batch_size: batch_size,
       batch_progress: progress_callback,
