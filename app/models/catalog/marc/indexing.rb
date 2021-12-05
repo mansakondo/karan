@@ -7,6 +7,14 @@ module Catalog
 
       alias_method :index, :process
       alias_method :index_each, :process_each
+
+      def entry_index(field)
+        if field.respond_to? :value
+          field.value
+        else
+          field.at("a").value
+        end
+      end
     end
 
     class_methods do
