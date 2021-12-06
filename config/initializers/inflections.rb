@@ -15,4 +15,5 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym "MARC"
   inflect.acronym "MARC21"
   inflect.acronym "UNIMARC"
+  inflect.acronym "FAB"
 end
