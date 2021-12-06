@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/mansakondo/material_view_components.git
+  revision: 05f4d3375459807851d7f21f67b15bffdbf1fb0d
+  branch: main
+  specs:
+    material_view_components (0.1.0)
+      rails (>= 6.1.4)
+      view_component
+
+GIT
   remote: https://github.com/zdennis/activerecord-import.git
   revision: 301bce15e54f3916cbd466633ed0784db150478a
   branch: activerecord7
@@ -257,6 +266,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jsbundling-rails
   marc
+  material_view_components!
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
