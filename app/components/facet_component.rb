@@ -69,11 +69,11 @@ class FacetComponent < ViewComponent::Base
     unless root?
       { form: :search, "data-facet-component-target": "fieldset", disabled: true, class: fieldset_classes }
     else
-      { form: :search }
+      { form: :search, class: "mb-4" }
     end
   end
 
   def fieldset_classes
-    "hidden relative border-none"
+    "hidden relative left-4 border-none"
   end
 end

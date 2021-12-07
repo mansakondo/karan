@@ -1,7 +1,14 @@
 <% if nested? %>
   <%= render FacetComponent.new name: name, aggregation: entry %>
 <% else %>
-  <%= field_set_tag (name.capitalize if root?), **fieldset_attributes do %>
+  <%= field_set_tag nil, **fieldset_attributes do %>
+    <% if root? %>
+      <div class="flex">
+        <legend class="mb-1 font-medium material-text-on-surface-variant"><%= name.upcase %></legend>
+        <%# <input type="reset" value="Clear all" form="search" class="ml-auto bg-transparent" data-controller="facet-component" data-action="click->facet-component#reset"> %>
+      </div>
+    <% end %>
+
     <% buckets.each do |bucket| %>
       <% if has_child? bucket %>
         <div data-controller="facet-component">
