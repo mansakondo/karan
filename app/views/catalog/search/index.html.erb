@@ -4,32 +4,10 @@
     <%= submit_tag "Search" %>
   <% end %>
 
-  <div class="mt-4">
-    <% if params[:filter_by].present? %>
-      <% params[:filter_by].each do |name, filter| %>
-        <% if filter[:entries] %>
-          <%= field_set_tag name.capitalize, class: "mx-0 pl-0 border-none font-bold" do %>
-            <% filter[:entries].each do |entry| %>
-              <div>
-                <%= entry.values.join(" -- ") %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-
   <div class="flex">
-    <div class="<%= "border-solid border-t border-0" if params[:filter_by].present? %>">
-      <%= field_set_tag nil, form: :search, class: "border-none mt-2 mx-0 pl-0 pt-0" do %>
-        <div class="flex">
-          <legend>FILTER BY</legend>
-          <input type="reset" form="search" class="ml-auto" data-controller="facet-component" data-action="click->facet-component#reset">
-        </div>
-        <%= render FacetsComponent.new aggregations: @response.aggregations %>
-      <% end %>
-    </div>
+    <%= field_set_tag nil, form: :search, class: "border-none mt-2 mx-0 pl-0 pt-0" do %>
+      <%= render FacetsComponent.new aggregations: @response.aggregations %>
+    <% end %>
 
     <% if @response.results.present? %>
       <ul class="mt-12">

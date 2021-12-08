@@ -5,6 +5,16 @@ export default class extends Controller {
 
   connect() {
     console.log("Hello, Stimulus!", this.element);
+
+    const checkboxTarget = this.element.querySelector("input[type=checkbox]")
+    const fieldsetTarget = this.element.querySelector("fieldset[data-facet-component-target]")
+
+    if (!checkboxTarget || !fieldsetTarget) return
+
+    if (checkboxTarget.checked) {
+      fieldsetTarget.disabled = false
+      fieldsetTarget.classList.remove("hidden")
+    }
   }
 
   toggleChildren() {

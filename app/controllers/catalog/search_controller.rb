@@ -10,8 +10,11 @@ module Catalog
           path  = filter_params[name][:path]
 
           if filter_params[name][:entries]
-            filter_params[name][:entries].each do |entry|
-              entry.each do |field, value|
+            filter_params[name][:entries].each do |_, entry|
+              field = entry[:field]
+              value = entry[:value]
+
+              if field && value
                 filter =
                   if path
                     {

@@ -19,6 +19,10 @@ class FacetComponent < ViewComponent::Base
     entry
   end
 
+  def active?
+    buckets.any? { |bucket| filtered_by? bucket }
+  end
+
   private
 
   def buckets
@@ -51,6 +55,14 @@ class FacetComponent < ViewComponent::Base
     return false unless child && child.buckets.present?
 
     true
+  end
+
+  def has_bucket?(bucket)
+    params[:filter_by] && params[:filter_by].dig(name, :entries, bucket[:key], :value)
+  end
+
+  def filtered_by?(bucket)
+    params[:filter_by] && params[:filter_by].dig(name, :entries, bucket[:key], :value)
   end
 
   def fieldset_attributes
