@@ -1,5 +1,14 @@
 module Catalog
   class MARC::RecordsController < ApplicationController
+    def index
+      case params[:record_type]
+      when "authority"
+        @records = MARC::Record.authority
+      else
+        @records = MARC::Record.bibliographic
+      end
+    end
+
     def show
       @record = MARC::Record.find(params[:id])
     end
@@ -21,7 +30,7 @@ module Catalog
     private
 
     def record_params
-      params.require(:catalog_marc_record).permit(fields_attributes: [
+      params.require(:catalog_marc_record).permit(:record_type, fields_attributes: [
         :id,
         :tag,
         :value,

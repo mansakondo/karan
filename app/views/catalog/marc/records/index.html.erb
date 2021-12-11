@@ -1,0 +1,9 @@
+<main class="flex flex-col items-center">
+  <h1 class="mb-8 material-font-headline material-text-headline-large">Records</h1>
+
+  <%= render "shared/search", :@url => catalog_marc_records_path %>
+
+  <ul class="mt-8">
+    <%= render @records %>
+  </ul>
+</main>
