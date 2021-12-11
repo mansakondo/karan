@@ -1,3 +1,8 @@
+<% if flash[:import_report] %>
+  <p><%= "#{flash[:import_report]["num_inserts"]} records imported" %></p>
+  <p><%= "#{flash[:import_report]["failed_instances"].count} failures" %></p>
+<% end %>
+
 <main class="flex flex-col items-center">
   <h1 class="mb-8 material-font-headline material-text-headline-large">Records</h1>
 

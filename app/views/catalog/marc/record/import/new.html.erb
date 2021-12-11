@@ -1,28 +1,32 @@
-<h1>Catalog::MARC::Record::Import#new</h1>
-<%= form_with url: catalog_marc_record_import_create_path do |import_form| %>
-  <%= import_form.file_field :file %>
+<main class="flex flex-col items-center">
+  <h1 class="mb-8 material-font-headline material-text-headline-large">Importing</h1>
+  <%= form_with url: catalog_marc_record_import_create_path do |import_form| %>
 
-  <div>
-    <%= import_form.label :format, "Format:" %>
-    <%= import_form.select :format, options_for_select([["UNIMARC", "unimarc"], ["MARC21", "marc21"]]) %>
-  </div>
+    <div class="inline-flex flex-col gap-6">
+      <%= import_form.file_field :file %>
 
-  <div>
-    <%= import_form.label :record_type, "Record type:" %>
-    <%= import_form.select :record_type, options_for_select([["Bibliographic", :bibliographic], ["Authority", :authority]]) %>
-  </div>
+      <div>
+        <%= import_form.label :format, "Format:" %>
+        <%= import_form.select :format, options_for_select([["UNIMARC", "unimarc"], ["MARC21", "marc21"]]) %>
+      </div>
 
-  <div>
-    <%= import_form.label :encoding, "Encoding:" %>
-    <%= import_form.select :encoding, options_for_select([["UTF-8", "UTF-8"], ["MARC-8", "MARC-8"]], selected: "UTF-8") %>
-  </div>
+      <div>
+        <%= import_form.label :record_type, "Record type:" %>
+        <%= import_form.select :record_type, options_for_select([["Bibliographic", :bibliographic], ["Authority", :authority]]) %>
+      </div>
 
-  <%= field_set_tag "On duplicate" do %>
-    <%= import_form.radio_button :on_duplicate, :skip %>
-    <%= import_form.label :on_duplicate_skip, "Skip" %>
-    <%= import_form.radio_button :on_duplicate, :update %>
-    <%= import_form.label :on_duplicate_update , "Update"%>
+      <div>
+        <%= import_form.label :encoding, "Encoding:" %>
+        <%= import_form.select :encoding, options_for_select([["UTF-8", "UTF-8"], ["MARC-8", "MARC-8"]], selected: "UTF-8") %>
+      </div>
+
+      <span>If there's a duplicate, I want to
+        <span>
+          <%= import_form.select :on_duplicate, options_for_select([["Skip", :skip], ["Update", :update]]) %>
+        </span>
+      </span>
+
+      <%= import_form.submit "Upload" %>
+    </div>
   <% end %>
-
-  <%= import_form.submit "Upload" %>
-<% end %>
+</main>
