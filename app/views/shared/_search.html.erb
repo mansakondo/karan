@@ -1,0 +1,7 @@
+<%= form_tag @url, id: :search, method: :get, class: "flex gap-2 w-min my-0 mx-auto" do %>
+  <%= search_field_tag :query, nil, placeholder: @placeholder || 'Type "sherlock holmes"', class: "w-80 border-b focus:outline-none" %>
+  <%= button_tag nil, class: "flex align-top ml-2" do %>
+    <span class="material-icons">search</span>
+  <% end %>
+<% end %>
+
