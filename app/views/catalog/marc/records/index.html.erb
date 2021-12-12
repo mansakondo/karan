@@ -11,4 +11,10 @@
   <ul class="mt-8">
     <%= render @records %>
   </ul>
+
+  <div class="flex justify-end w-full mt-8">
+    <%= render Material::FABComponent.new(catalog_marc_record_import_new_path, method: :get) do |fab| %>
+      <%= fab.icon "upload" %>
+    <% end %>
+  </div>
 </main>
