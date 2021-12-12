@@ -1,5 +1,8 @@
 module Catalog
   class MARC::Record < ApplicationRecord
+    paginates_per 10
+    max_paginates_per 100
+
     TYPES = %w(
       Catalog::MARC::Record::BibliographicRecord
       Catalog::MARC::Record::AuthorityRecord

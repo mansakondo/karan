@@ -42,13 +42,18 @@ module Catalog
         end
       end
 
-      @response = MARC::Record.bibliographic.search query(entry, filters).merge(facets)
+      @response = MARC::Record.bibliographic.search(query(entry, filters).merge(facets)).page(params[:page])
+
+      params[:show] ||= @response.limit_value
+
+      @records = @response.per(params[:show]).records
+
     end
 
     private
 
     def search_params
-      params.permit(:query, :sort_by, :commit, filter_by: {})
+      params.permit(:query, :sort_by, :page, :show, :commit, filter_by: {})
     end
   end
 end

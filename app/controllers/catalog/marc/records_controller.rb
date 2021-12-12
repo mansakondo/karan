@@ -1,11 +1,13 @@
 module Catalog
   class MARC::RecordsController < ApplicationController
     def index
+      params[:show] ||= 10
+
       case params[:record_type]
       when "authority"
-        @records = MARC::Record.authority
+        @records = MARC::Record.authority.page(params[:page]).per(params[:show])
       else
-        @records = MARC::Record.bibliographic
+        @records = MARC::Record.bibliographic.page(params[:page]).per(params[:show])
       end
     end
 
