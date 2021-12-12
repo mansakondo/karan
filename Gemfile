@@ -40,6 +40,8 @@ gem "rexml"
 
 gem "activemodel-embedding"
 
+gem "kaminari"
+
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
 gem "elasticsearch-dsl"
