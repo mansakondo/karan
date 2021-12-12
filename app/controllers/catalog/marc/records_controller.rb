@@ -1,7 +1,6 @@
 module Catalog
   class MARC::RecordsController < ApplicationController
     def index
-<<<<<<< HEAD
       params[:show] ||= 10
 
       case params[:record_type]
@@ -9,13 +8,6 @@ module Catalog
         @records = MARC::Record.authority.page(params[:page]).per(params[:show])
       else
         @records = MARC::Record.bibliographic.page(params[:page]).per(params[:show])
-=======
-      case params[:record_type]
-      when "authority"
-        @records = MARC::Record.authority
-      else
-        @records = MARC::Record.bibliographic
->>>>>>> Add views for MARC records
       end
     end
 
