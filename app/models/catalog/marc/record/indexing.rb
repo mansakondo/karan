@@ -70,6 +70,8 @@ module Catalog
       end
 
       def define_index_method(name, value)
+        value = value.gsub /\"/, "'" if value.is_a? String
+
         instance_eval <<-CODE, __FILE__, __LINE__ + 1
           def #{name}
             eval <<-STRING
