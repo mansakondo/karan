@@ -1,2 +1,10 @@
 /* @tailwind base; */
 @tailwind utilities;
+
+#filters:target {
+	display: block;
+}
+
+#filters:target + div {
+	display: none;
+}

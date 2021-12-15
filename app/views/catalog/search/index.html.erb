@@ -1,13 +1,22 @@
 <main class="mt-6">
   <%= render "shared/search", :@url => catalog_search_path %>
 
-  <div class="flex mt-10 gap-10">
-    <div class="pr-10 border-r">
+  <div class="mt-10 md:flex md:gap-10">
+    <div id="filters" class="hidden pr-10 md:border-r md:block prose">
+      <div class="flex justify-end">
+        <a href="#" class="md:hidden" data-turbo="false"><span class="material-icons">close</span></a>
+      </div>
       <%= render FacetsComponent.new aggregations: @response.aggregations %>
     </div>
 
     <% if @records.present? %>
-      <div class="w-6/12">
+      <div class="w-full mx-auto md:m-0 prose">
+        <div class="flex">
+          <a href="#filters" class="md:hidden" data-turbo="false">
+            <span class="material-icons">filter_list</span>
+          </a>
+        </div>
+
         <ul class="mt-6">
           <% @records.each do |record| %>
             <li><%= record.title %></li>
