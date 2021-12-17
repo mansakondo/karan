@@ -8,3 +8,7 @@
 #filters:target + div {
 	display: none;
 }
+
+.prose ul>li:before {
+	display: none;
+}
