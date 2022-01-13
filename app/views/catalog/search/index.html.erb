@@ -19,7 +19,7 @@
 
         <ul class="mt-6">
           <% @records.each do |record| %>
-            <li><%= record.title %></li>
+            <li><%= link_to record.title, record %> </li>
           <% end %>
         </ul>
 
