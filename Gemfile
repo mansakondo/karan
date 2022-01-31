@@ -50,7 +50,6 @@ gem "elasticsearch-dsl"
 gem 'bonsai-elasticsearch-rails'
 
 gem "marc"
-gem "zoom"
 gem "activerecord-import",
   github: "zdennis/activerecord-import",
   branch: "activerecord7",
@@ -63,6 +62,7 @@ gem "material_view_components", github: "mansakondo/material_view_components", b
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "zoom"
 end
 
 group :development do
