@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.1"
 
-gem "rails", "~> 7.0.0.alpha"
+gem 'rails', '~> 7.0', '>= 7.0.1'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -12,9 +12,9 @@ gem "puma", "~> 5.0"
 # Manage modern JavaScript using ESM without transpiling or bundling
 gem "importmap-rails", ">= 0.3.4"
 # Hotwire's SPA-like page accelerator. Read more: https://turbo.hotwired.dev
-gem "turbo-rails", ">= 0.7.11"
+gem 'turbo-rails', '~> 1.0', '>= 1.0.1'
 # Hotwire's modest JavaScript framework for the HTML you already have. Read more: https://stimulus.hotwired.dev
-gem "stimulus-rails", ">= 0.4.0"
+gem 'stimulus-rails', '~> 1.0', '>= 1.0.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.7"
 # Use Redis adapter to run Action Cable in production
@@ -37,6 +37,8 @@ gem "cssbundling-rails"
 gem "bootsnap", ">= 1.4.4", require: false
 
 gem "rexml"
+
+gem "sprockets-rails"
 
 gem "activemodel-embedding"
 
