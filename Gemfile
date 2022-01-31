@@ -45,6 +45,7 @@ gem "kaminari"
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
 gem "elasticsearch-dsl"
+gem 'bonsai-elasticsearch-rails'
 
 gem "marc"
 gem "zoom"

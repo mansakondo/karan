@@ -81,6 +81,9 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
+    bonsai-elasticsearch-rails (7.0.1)
+      elasticsearch-model (< 8)
+      elasticsearch-rails (< 8)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -267,6 +270,7 @@ PLATFORMS
 DEPENDENCIES
   activemodel-embedding
   activerecord-import!
+  bonsai-elasticsearch-rails
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
