@@ -9,13 +9,6 @@ require("esbuild").build({
   plugins: [
     importGlobPlugin.default(),
   ],
-  watch: {
-    onRebuild: (err, result) => {
-      if (err) console.log("Watch build failed: ", err)
-      else console.log("Watch build succeeded", result);
-    },
-  },
-}).then(result => {
-  console.log("Watching...");
-})
+  watch: process.argv.includes("--watch"),
+}).catch(() => process.exit(1))
 
