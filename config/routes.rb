@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'catalog/search#index'
+
   namespace :catalog do
     get 'search/', to: 'search#index'
 
@@ -12,5 +14,5 @@ Rails.application.routes.draw do
     end
   end
 
-  mount MaterialViewComponents::Engine => "/material_view_components"
+  mount MaterialViewComponents::Engine => '/material_view_components'
 end
