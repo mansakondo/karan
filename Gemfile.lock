@@ -111,10 +111,10 @@ GEM
     cssbundling-rails (1.0.0)
       railties (>= 6.0.0)
     digest (3.1.0)
-    elasticsearch (7.16.3)
-      elasticsearch-api (= 7.16.3)
-      elasticsearch-transport (= 7.16.3)
-    elasticsearch-api (7.16.3)
+    elasticsearch (7.13.3)
+      elasticsearch-api (= 7.13.3)
+      elasticsearch-transport (= 7.13.3)
+    elasticsearch-api (7.13.3)
       multi_json
     elasticsearch-dsl (0.1.10)
     elasticsearch-model (7.2.0)
@@ -122,7 +122,7 @@ GEM
       elasticsearch (~> 7)
       hashie
     elasticsearch-rails (7.2.0)
-    elasticsearch-transport (7.16.3)
+    elasticsearch-transport (7.13.3)
       faraday (~> 1)
       multi_json
     erubi (1.10.0)
@@ -311,6 +311,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   cssbundling-rails
+  elasticsearch (= 7.13.3)
   elasticsearch-dsl
   elasticsearch-model
   elasticsearch-rails

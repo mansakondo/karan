@@ -44,6 +44,7 @@ gem "activemodel-embedding"
 
 gem "kaminari"
 
+gem "elasticsearch", "7.13.3"
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
 gem "elasticsearch-dsl"
