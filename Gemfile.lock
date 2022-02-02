@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mansakondo/material_view_components.git
-  revision: 05f4d3375459807851d7f21f67b15bffdbf1fb0d
+  revision: 40557a6b7208cbdbeafde25f9d996ffb57f8400b
   branch: main
   specs:
     material_view_components (0.1.0)
