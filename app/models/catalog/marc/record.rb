@@ -71,6 +71,23 @@ module Catalog
     scope :unimarc_authority, -> { unimarc.merge(catalog_marc_record_authority_records) }
 
     mapping do
+      indexes :leader
+
+      indexes :fields do
+        indexes :tag
+        indexes :indicator1
+        indexes :indicator2
+
+        indexes :subfields do
+          indexes :code
+          indexes :value
+        end
+      end
+
+      indexes :format
+
+      indexes :marc_recordable_type
+
       indexes :genre do
         indexes :entry, fields: { raw: { type: :keyword }}
         indexes :level1, fields: { raw: { type: :keyword }}
