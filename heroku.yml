@@ -1,5 +1,10 @@
 build:
   docker:
     web: Dockerfile
+  config:
+    RACK_ENV: production
+    RAILS_ENV: production
+    RAILS_MASTER_KEY: 2672def17ac4867d4cec6b6511ea18f5
+    RAILS_SERVE_STATIC_FILES: true
 run:
   web: bundle exec rails server -p $PORT
