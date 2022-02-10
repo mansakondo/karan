@@ -48,94 +48,94 @@ progress_callback = -> (rows_size, num_batches, current_batch_number, batch_dura
 
 puts
 
-# marc21_glob   = Rails.root.join("data", "marc_toronto_public_library", "{OL, DATA}.*")
-# marc21_files  = Dir[marc21_glob]
-# marc21_file   = marc21_files.first
-#
-# total_time = Benchmark.measure do
-#   puts "Decoding MARC21 records..."
-#   puts
-#
-#   marc21_records, record_type_class = Catalog::MARC::Record.read(marc21_file, format: :marc21, autosave: true)
-#
-#   num_records = marc21_records.count
-#
-#   puts "Importing #{num_records} MARC21 records..."
-#   puts
-#
-#   total = nil
-#
-#   time = Benchmark.measure do
-#     result = record_type_class.bulk_import(
-#       marc21_records.to_a,
-#       batch_size: batch_size,
-#       batch_progress: progress_callback,
-#       recursive: true
-#     )
-#
-#     total = num_records - result.failed_instances.count
-#   end
-#
-#   puts "#{total} records imported in #{time.real} seconds"
-# end
-#
-# puts "Total time (in secs): #{total_time.real}"
-# puts
-
-unimarc_bib_glob   = Rails.root.join("data", "unimarc", "records", "bib", "*")
-unimarc_auth_glob  = Rails.root.join("data", "unimarc", "records", "auth", "*")
-unimarc_bib_files  = Dir[unimarc_bib_glob]
-unimarc_auth_files = Dir[unimarc_auth_glob]
+marc21_glob   = Rails.root.join("data", "marc_toronto_public_library", "{OL, DATA}.*")
+marc21_files  = Dir[marc21_glob]
+marc21_file   = marc21_files.first
 
 total_time = Benchmark.measure do
-  puts "Decoding UNIMARC records..."
+  puts "Decoding MARC21 records..."
   puts
 
-  unimarc_bib_files.each do |unimarc_file|
-    total = nil
+  marc21_records, record_type_class = Catalog::MARC::Record.read(marc21_file, format: :marc21, autosave: true)
 
-    time = Benchmark.measure do
-      unimarc_records, record_type_class = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true)
-      num_records     = unimarc_records.count
+  num_records = marc21_records.count
 
-      puts "Importing #{num_records} UNIMARC bibliographic records..."
-      puts
+  puts "Importing #{num_records} MARC21 records..."
+  puts
 
-      result = record_type_class.bulk_import(
-        unimarc_records.to_a,
-        batch_size: batch_size,
-        batch_progress: progress_callback,
-        recursive: true
-      )
+  total = nil
 
-      total = num_records - result.failed_instances.count
-    end
+  time = Benchmark.measure do
+    result = record_type_class.bulk_import(
+      marc21_records.to_a,
+      batch_size: batch_size,
+      batch_progress: progress_callback,
+      recursive: true
+    )
 
-    puts "#{total} records imported in #{time.real} seconds"
+    total = num_records - result.failed_instances.count
   end
 
-  unimarc_auth_files.each do |unimarc_file|
-    total = nil
-
-    time = Benchmark.measure do
-      unimarc_records, record_type_class = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true, record_type: :authority)
-      num_records     = unimarc_records.count
-
-      puts "Importing #{num_records} UNIMARC authority records..."
-      puts
-
-      result = record_type_class.bulk_import(
-        unimarc_records.to_a,
-        batch_size: batch_size,
-        batch_progress: progress_callback,
-        recursive: true
-      )
-
-      total = num_records - result.failed_instances.count
-    end
-
-    puts "#{total} records imported in #{time.real} seconds"
-  end
+  puts "#{total} records imported in #{time.real} seconds"
 end
 
 puts "Total time (in secs): #{total_time.real}"
+puts
+
+# unimarc_bib_glob   = Rails.root.join("data", "unimarc", "records", "bib", "*")
+# unimarc_auth_glob  = Rails.root.join("data", "unimarc", "records", "auth", "*")
+# unimarc_bib_files  = Dir[unimarc_bib_glob]
+# unimarc_auth_files = Dir[unimarc_auth_glob]
+#
+# total_time = Benchmark.measure do
+#   puts "Decoding UNIMARC records..."
+#   puts
+#
+#   unimarc_bib_files.each do |unimarc_file|
+#     total = nil
+#
+#     time = Benchmark.measure do
+#       unimarc_records, record_type_class = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true)
+#       num_records     = unimarc_records.count
+#
+#       puts "Importing #{num_records} UNIMARC bibliographic records..."
+#       puts
+#
+#       result = record_type_class.bulk_import(
+#         unimarc_records.to_a,
+#         batch_size: batch_size,
+#         batch_progress: progress_callback,
+#         recursive: true
+#       )
+#
+#       total = num_records - result.failed_instances.count
+#     end
+#
+#     puts "#{total} records imported in #{time.real} seconds"
+#   end
+#
+#   unimarc_auth_files.each do |unimarc_file|
+#     total = nil
+#
+#     time = Benchmark.measure do
+#       unimarc_records, record_type_class = Catalog::MARC::Record.read(unimarc_file, format: "unimarc", autosave: true, record_type: :authority)
+#       num_records     = unimarc_records.count
+#
+#       puts "Importing #{num_records} UNIMARC authority records..."
+#       puts
+#
+#       result = record_type_class.bulk_import(
+#         unimarc_records.to_a,
+#         batch_size: batch_size,
+#         batch_progress: progress_callback,
+#         recursive: true
+#       )
+#
+#       total = num_records - result.failed_instances.count
+#     end
+#
+#     puts "#{total} records imported in #{time.real} seconds"
+#   end
+# end
+
+# puts "Total time (in secs): #{total_time.real}"

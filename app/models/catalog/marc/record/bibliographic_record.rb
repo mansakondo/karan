@@ -2,7 +2,10 @@ module Catalog
   class MARC::Record::BibliographicRecord < ApplicationRecord
     INDEXES = {
       "marc21" => {
-        title: "245"
+        title: "245",
+        subjects: ["650", { collection: true }],
+        genre: "655",
+        authors: ["100", { collection: true }]
       },
       "unimarc" => {
         title: "200",
