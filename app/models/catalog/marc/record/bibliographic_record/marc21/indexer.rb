@@ -10,9 +10,10 @@ module Catalog
       end
 
       def on_245(field)
-        title_proper = field.at("a").value
+        title_proper       = field.at("a").value.gsub(" /", "")
+        remainder_of_title = field.at("b").try(:value) || ""
 
-        title_proper
+        title_proper + " " + remainder_of_title.gsub(" /", "")
       end
 
       def on_650(field)
