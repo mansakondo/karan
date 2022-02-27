@@ -70,42 +70,51 @@ module Catalog
     scope :unimarc_bibliographic, -> { unimarc.merge(catalog_marc_record_bibliographic_records) }
     scope :unimarc_authority, -> { unimarc.merge(catalog_marc_record_authority_records) }
 
-    mapping do
-      indexes :leader
+    settings index: { number_of_shards: 1 } do
+      mappings dynamic: "false" do
+        indexes :id, type: :long
 
-      indexes :fields do
-        indexes :tag
-        indexes :indicator1
-        indexes :indicator2
+        indexes :leader, fields: { keyword: { type: :keyword , ignore_above: 256} }
 
-        indexes :subfields do
-          indexes :code
-          indexes :value
+        indexes :fields do
+          indexes :id, type: :long
+          indexes :tag, fields: { keyword: { type: :keyword , ignore_above: 256} }
+          indexes :indicator1, fields: { keyword: { type: :keyword , ignore_above: 256} }
+          indexes :indicator2, fields: { keyword: { type: :keyword , ignore_above: 256} }
+          indexes :subfields do
+            indexes :id, type: :long
+            indexes :code, fields: { keyword: { type: :keyword , ignore_above: 256} }
+            indexes :value, fields: { keyword: { type: :keyword , ignore_above: 256} }
+          end
         end
-      end
 
-      indexes :format
+        indexes :format, fields: { keyword: { type: :keyword , ignore_above: 256} }
 
-      indexes :marc_recordable_type
+        indexes :marc_recordable_type, fields: { keyword: { type: :keyword , ignore_above: 256} }
+        indexes :marc_recordable_id, type: :long
 
-      indexes :genre do
-        indexes :entry, fields: { raw: { type: :keyword }}
-        indexes :level1, fields: { raw: { type: :keyword }}
-        indexes :level2, fields: { raw: { type: :keyword }}
-        indexes :level3, fields: { raw: { type: :keyword }}
-        indexes :level4, fields: { raw: { type: :keyword }}
-      end
+        indexes :created_at, type: :date
+        indexes :updated_at, type: :date
 
-      indexes :subjects, type: :nested do
-        indexes :entry, fields: { raw: { type: :keyword }}
-        indexes :level1, fields: { raw: { type: :keyword }}
-        indexes :level2, fields: { raw: { type: :keyword }}
-        indexes :level3, fields: { raw: { type: :keyword }}
-        indexes :level4, fields: { raw: { type: :keyword }}
-      end
+        indexes :genre do
+          indexes :entry, fields: { raw: { type: :keyword }}
+          indexes :level1, fields: { raw: { type: :keyword }}
+          indexes :level2, fields: { raw: { type: :keyword }}
+          indexes :level3, fields: { raw: { type: :keyword }}
+          indexes :level4, fields: { raw: { type: :keyword }}
+        end
 
-      indexes :authors, type: :nested do
-        indexes :entry, fields: { raw: { type: :keyword }}
+        indexes :subjects, type: :nested do
+          indexes :entry, fields: { raw: { type: :keyword }}
+          indexes :level1, fields: { raw: { type: :keyword }}
+          indexes :level2, fields: { raw: { type: :keyword }}
+          indexes :level3, fields: { raw: { type: :keyword }}
+          indexes :level4, fields: { raw: { type: :keyword }}
+        end
+
+        indexes :authors, type: :nested do
+          indexes :entry, fields: { raw: { type: :keyword }}
+        end
       end
     end
   end
