@@ -5,7 +5,7 @@ module Catalog
         title: "245",
         subjects: ["650", { collection: true }],
         genre: "655",
-        authors: ["100", { collection: true }]
+        authors: [%w( 100 700 ), { collection: true }]
       },
       "unimarc" => {
         title: "200",

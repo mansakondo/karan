@@ -9,6 +9,8 @@ module Catalog
         { entry: entry }
       end
 
+      alias on_700 on_100
+
       def on_245(field)
         title_proper       = field.at("a").value.gsub(" /", "")
         remainder_of_title = field.at("b").try(:value) || ""
