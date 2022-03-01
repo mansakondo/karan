@@ -3,7 +3,7 @@
 
   <div>
     <%= label_tag "show" %>
-    <%= select_tag "show", options_for_select([["5", "5"], ["10", "10"], ["15", "15"], ["20", "20"], ["25", "25"], ["30", "30"]], params[:show]), form: :search %>
+    <%= select_tag "show", options_for_select([["5", "5"], ["10", "10"], ["15", "15"], ["20", "20"], ["25", "25"], ["30", "30"]], params[:show]), form: :search, "data-action": "change->search#displayResults" %>
   </div>
 </div>
 

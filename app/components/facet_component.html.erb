@@ -10,29 +10,21 @@
     <% end %>
 
     <% buckets.each do |bucket| %>
-      <% if has_child? bucket %>
-        <div data-controller="facet-component">
-          <%= hidden_field_tag "filter_by[#{name}][path]", path, form: :search if path %>
-          <%= hidden_field_tag "filter_by[#{name}][entries][#{bucket[:key]}][field]", field, form: :search %>
-          <%= check_box_tag "filter_by[#{name}][entries][#{bucket[:key]}][value]", bucket[:key], false, data: { action: "click->facet-component#toggleChildren" }, form: :search, checked: ("checked" if filtered_by? bucket)
- %>
-          <%= label_tag "filter_by[#{name}][entries][#{bucket[:key]}][value]", labelize(bucket), form: :search %>
+      <div data-controller="facet-component">
+        <%= hidden_field_tag "filter_by[#{name}][path]", path, form: :search if path %>
+        <%= hidden_field_tag "filter_by[#{name}][entries][#{bucket[:key]}][field]", field, form: :search %>
+        <%= check_box_tag "filter_by[#{name}][entries][#{bucket[:key]}][value]", bucket[:key], false, data: { action: "click->facet-component#toggleChildren click->search#displayResults" }, form: :search, checked: ("checked" if filtered_by? bucket)
+      %>
+        <%= label_tag "filter_by[#{name}][entries][#{bucket[:key]}][value]", labelize(bucket), form: :search %>
 
+        <% if has_child? bucket %>
           <% if root? %>
             <%= render FacetComponent.new name: name, aggregation: bucket[:child], root: false, root_entry: bucket[:key] %>
           <% else %>
             <%= render FacetComponent.new name: name, aggregation: bucket[:child], root: false, root_entry: @root_entry %>
           <% end %>
-        </div>
-      <% else %>
-        <div>
-          <%= hidden_field_tag "filter_by[#{name}][path]", path, form: :search if path %>
-          <%= hidden_field_tag "filter_by[#{name}][entries][#{bucket[:key]}][field]", field, form: :search %>
-          <%= check_box_tag "filter_by[#{name}][entries][#{bucket[:key]}][value]", bucket[:key], false, form: :search, checked: ("checked" if filtered_by? bucket) %>
-          <%= label_tag "filter_by[#{name}][entries][#{bucket[:key]}][value]", labelize(bucket), form: :search %>
-        </div>
-      <% end %>
-
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 <% end %>
