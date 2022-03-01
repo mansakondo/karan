@@ -18,12 +18,8 @@ export default class extends Controller {
   }
 
   toggleChildren() {
-    this.toggle(this.fieldsetTarget)
-  }
-
-  toggle(target) {
-    target.toggleAttribute("disabled")
-    target.classList.toggle("hidden")
+    this.fieldsetTarget.toggleAttribute("disabled")
+    this.fieldsetTarget.classList.toggle("hidden")
   }
 
   reset() {
