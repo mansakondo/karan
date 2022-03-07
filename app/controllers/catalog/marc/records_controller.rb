@@ -29,6 +29,13 @@ module Catalog
       end
     end
 
+    def destroy
+      @record = MARC::Record.find(params[:id])
+      @record.destroy
+
+      redirect_to catalog_marc_records_path, status: :see_other
+    end
+
     private
 
     def record_params
