@@ -41,6 +41,8 @@ module Catalog
                 fields: record.fields
               )
 
+              duplicate.save
+
               next
             else
               next
@@ -50,6 +52,7 @@ module Catalog
           if autosave == true
             record.fields.save
           end
+
 
           marc_recordables << marc_recordable
         end
