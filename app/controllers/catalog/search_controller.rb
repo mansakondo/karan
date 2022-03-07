@@ -47,7 +47,6 @@ module Catalog
       params[:show] ||= @response.limit_value
 
       @records = @response.per(params[:show]).records
-
     end
 
     private
