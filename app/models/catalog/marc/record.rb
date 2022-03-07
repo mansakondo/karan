@@ -65,6 +65,9 @@ module Catalog
       alias authority catalog_marc_record_authority_records
     end
 
+    alias bibliographic? catalog_marc_record_bibliographic_record?
+    alias authority? catalog_marc_record_authority_record?
+
     scope :marc21_bibliographic, -> { marc21.merge(catalog_marc_record_bibliographic_records) }
     scope :marc21_authority, -> { marc21.merge(catalog_marc_record_authority_records) }
     scope :unimarc_bibliographic, -> { unimarc.merge(catalog_marc_record_bibliographic_records) }

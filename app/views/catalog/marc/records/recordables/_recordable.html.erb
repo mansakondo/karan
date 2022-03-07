@@ -1,0 +1,13 @@
+<li>
+  <div class="flex gap-4">
+    <% if record.authority?  %>
+      <%= link_to "Authority #{record.id}", record, class: "font-medium hover:underline" %>
+    <% else %>
+      <%= link_to record.title, record, class: "font-medium hover:underline" %>
+    <% end %>
+
+    <%= link_to "Edit", edit_catalog_marc_record_path(record), class: "hover:underline" %>
+    <%= button_to "Delete", record, class: "hover:underline", method: :delete, form: { data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } } %>
+  </div>
+</li>
+
