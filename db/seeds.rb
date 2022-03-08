@@ -187,3 +187,6 @@ puts
 # end
 
 # puts "Total time (in secs): #{total_time.real}"
+
+Catalog::MARC::Record.__elasticsearch__.create_index! force: true
+Catalog::MARC::Record.import
