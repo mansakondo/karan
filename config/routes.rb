@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   end
 
   mount MaterialViewComponents::Engine => '/material_view_components'
+
+  require 'sidekiq/web'
+
+  mount Sidekiq::Web => "/sidekiq" # mount Sidekiq::Web in your Rails app
 end

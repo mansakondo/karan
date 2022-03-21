@@ -19,13 +19,15 @@ gem 'stimulus-rails', '~> 1.0', '>= 1.0.2'
 gem "jbuilder", "~> 2.7"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
-
 # Use JavaScript bundler
 gem "jsbundling-rails"
 # Use CSS bundler
 gem "cssbundling-rails"
 # Use Tailwind CSS. See: https://github.com/rails/tailwindcss-rails
 # gem "tailwindcss-rails", "~> 0.4.3"
+
+# Use Sidekiq for background job processing
+gem "sidekiq"
 
 # Use Active Model has_secure_password
 # gem "bcrypt", "~> 3.1.7"
