@@ -1,0 +1,11 @@
+<% if result  %>
+  <p><%= result.num_inserts %> records inserted</p>
+  <p><%= result.ids.count - result.num_inserts %> records updated</p>
+  <p><%= result.failed_instances.count %> failures</p>
+<% else %>
+  <p>Importing...</p>
+  <p><%= "#{records_inserted}/#{rows_size} records inserted" %></p>
+  <p>Records left: <%= records_left %></p>
+  <p><%= "#{batches_inserted}/#{num_batches} batches inserted" %></p>
+  <p>Batches left: <%= batches_left %></p>
+<% end %>

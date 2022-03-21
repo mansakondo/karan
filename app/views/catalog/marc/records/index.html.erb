@@ -1,6 +1,4 @@
-<% if flash[:import_report] %>
-  <p><%= "#{flash[:import_report]["num_inserts"]} records imported" %></p>
-  <p><%= "#{flash[:import_report]["failed_instances"].count} failures" %></p>
+<%= turbo_frame_tag "import_progress", "data-controller": "import-progress" do %>
 <% end %>
 
 <main class="flex flex-col items-center">
@@ -9,8 +7,10 @@
   <%= render "shared/search", :@url => catalog_marc_records_path %>
 
   <ul class="mt-8">
-    <%= render @records %>
-    <%= render "shared/pagination" %>
+    <%= turbo_frame_tag "catalog_marc_records" do %>
+      <%= render @records %>
+      <%= render "shared/pagination" %>
+    <% end %>
   </ul>
 
   <div class="flex justify-end w-full mt-8">
