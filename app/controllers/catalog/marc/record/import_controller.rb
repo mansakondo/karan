@@ -11,23 +11,17 @@ module Catalog
         return
       end
 
-      records, record_type_class =
-        MARC::Record.read(
-          file.tempfile,
-          format: format,
-          record_type: record_type.to_sym,
-          encoding: encoding,
-          autosave: true,
-          on_duplicate: on_duplicate
-        )
+      marc = File.read(file.to_path)
 
-      result  = record_type_class.bulk_import(
-        records.to_a,
-        batch_size: 1000,
-        recursive: true
+      MARC::Record::ImporterJob.perform_later(
+        marc,
+        format,
+        record_type,
+        encoding,
+        on_duplicate
       )
 
-      redirect_to catalog_marc_records_path(record_type: record_type), flash: { import_report: result }
+      redirect_to catalog_marc_records_path(record_type: record_type)
     end
 
     private
