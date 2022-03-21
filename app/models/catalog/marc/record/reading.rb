@@ -3,8 +3,13 @@ module Catalog
     extend ActiveSupport::Concern
 
     class_methods do
-      def read(file, record_type: :bibliographic, format:, encoding: "UTF-8", autosave: false, on_duplicate: "skip")
-        reader = ::MARC::Reader.new(file, external_encoding: encoding)
+      def read(file = nil, marc: nil, record_type: :bibliographic, format:, encoding: "UTF-8", autosave: false, on_duplicate: "skip")
+        reader =
+          if file
+            ::MARC::Reader.new(file, external_encoding: encoding)
+          else
+            ::MARC::Reader.new(StringIO.new(marc), external_encoding: encoding)
+          end
 
         case record_type
         when :bibliographic
