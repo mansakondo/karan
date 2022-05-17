@@ -1,7 +1,8 @@
 module Catalog
-  class MARC::Record::ImporterJob < ApplicationJob
-    queue_as :default
-    sidekiq_options retry: false
+  class MARC::Record::ImporterJob
+    include Parallelixir::Job
+    # queue_as :default
+    # sidekiq_options retry: false
 
     def perform(marc, format, record_type, encoding, on_duplicate)
       records, record_type_class =

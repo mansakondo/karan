@@ -29,6 +29,8 @@ gem "cssbundling-rails"
 # Use Sidekiq for background job processing
 gem "sidekiq"
 
+gem "parallelixir", path: "../../ruby/parallelixir"
+
 # Use Active Model has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 
@@ -66,6 +68,7 @@ group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "zoom"
+  gem "dotenv-rails"
 end
 
 group :development do

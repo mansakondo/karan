@@ -6,6 +6,16 @@ GIT
     activerecord-import (1.2.0)
       activerecord (>= 4.2)
 
+PATH
+  remote: ../../ruby/parallelixir
+  specs:
+    parallelixir (0.1.0)
+      activesupport
+      connection_pool
+      erlectricity
+      rake
+      redis
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -103,6 +113,10 @@ GEM
     cssbundling-rails (1.0.0)
       railties (>= 6.0.0)
     digest (3.1.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     elasticsearch (7.13.3)
       elasticsearch-api (= 7.13.3)
       elasticsearch-transport (= 7.13.3)
@@ -117,6 +131,7 @@ GEM
     elasticsearch-transport (7.13.3)
       faraday (~> 1)
       multi_json
+    erlectricity (1.1.1)
     erubi (1.10.0)
     faraday (1.9.3)
       faraday-em_http (~> 1.0)
@@ -310,6 +325,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   cssbundling-rails
+  dotenv-rails
   elasticsearch (= 7.13.3)
   elasticsearch-dsl
   elasticsearch-model
@@ -320,6 +336,7 @@ DEPENDENCIES
   kaminari
   marc
   material_view_components
+  parallelixir!
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
