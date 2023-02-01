@@ -22,32 +22,32 @@ module Catalog
           record.format          = format
           record.marc_recordable = marc_recordable
 
-          original_id = record.at("001").value
-
-          duplicate_detection_query = Elasticsearch::DSL::Search.search do
-            query do
-              term "fields.value.keyword" => original_id
-            end
-          end
-
-          response  = search duplicate_detection_query
-          duplicate = response.records.first
-
-          if duplicate
-            case on_duplicate
-            when "update"
-              duplicate.assign_attributes(
-                leader: record.leader,
-                fields: record.fields
-              )
-
-              duplicate.save
-
-              next
-            else
-              next
-            end
-          end
+          # original_id = record.at("001").value
+          #
+          # duplicate_detection_query = Elasticsearch::DSL::Search.search do
+          #   query do
+          #     term "fields.value.keyword" => original_id
+          #   end
+          # end
+          #
+          # response  = search duplicate_detection_query
+          # duplicate = response.records.first
+          #
+          # if duplicate
+          #   case on_duplicate
+          #   when "update"
+          #     duplicate.assign_attributes(
+          #       leader: record.leader,
+          #       fields: record.fields
+          #     )
+          #
+          #     duplicate.save
+          #
+          #     next
+          #   else
+          #     next
+          #   end
+          # end
 
           if autosave == true
             record.fields.save
