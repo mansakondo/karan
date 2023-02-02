@@ -39,8 +39,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  config.action_cable.url = ENV["HEROKU_REDIS_AQUA_URL"]
-  config.action_cable.allowed_request_origins = [ "http://karan-demo.herokuapp.com" ]
+  config.action_cable.url = ENV["REDIS_URL"]
+  config.action_cable.allowed_request_origins = [ %r{(https|http)://karan-demo.*} ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true

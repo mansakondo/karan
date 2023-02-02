@@ -102,6 +102,8 @@ GEM
     cssbundling-rails (1.0.0)
       railties (>= 6.0.0)
     digest (3.1.0)
+    dockerfile-rails (1.0.2)
+      rails
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -309,6 +311,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   cssbundling-rails
+  dockerfile-rails (>= 1.0.0)
   dotenv-rails
   elasticsearch (= 7.13.3)
   elasticsearch-dsl
