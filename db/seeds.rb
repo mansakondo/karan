@@ -48,53 +48,53 @@ progress_callback = -> (rows_size, num_batches, current_batch_number, batch_dura
 
 puts
 
-total_time = Benchmark.measure do
-  records = []
-
-  require "zoom"
-
-  bib_record_class = Catalog::MARC::Record::BibliographicRecord
-
-  isbn_list = %w( 9780307463746 9780578012810 9780804137508 9780132852098 9780134757599 9781941222126 0974514055 9781937785536)
-  isbn_list.each do |isbn|
-    conn = ZOOM::Connection.new.connect("symphony.torontopubliclibrary.ca:2200")
-    conn.database_name = "unicorn"
-    conn.lang = "en"
-    conn.preferred_record_syntax = "MARC21"
-
-
-    results = conn.search "@attr 1=7 #{isbn}"
-    marc    = results[0].raw
-    record  = Catalog::MARC::Record.new_from_marc(marc)
-
-    marc_recordable        = bib_record_class.new
-    record.format          = "marc21"
-    record.marc_recordable = marc_recordable
-
-    records << marc_recordable
-  end
-
-
-  total = nil
-
-  time = Benchmark.measure do
-    result = bib_record_class.bulk_import(
-      records,
-      batch_size: batch_size,
-      batch_progress: progress_callback,
-      recursive: true
-    )
-
-    num_records = records.size
-
-    total = num_records - result.failed_instances.count
-  end
-
-  puts "#{total} records imported in #{time.real} seconds"
-end
-
-puts "Total time (in secs): #{total_time.real}"
-puts
+# total_time = Benchmark.measure do
+#   records = []
+#
+#   require "zoom"
+#
+#   bib_record_class = Catalog::MARC::Record::BibliographicRecord
+#
+#   isbn_list = %w( 9780307463746 9780578012810 9780804137508 9780132852098 9780134757599 9781941222126 0974514055 9781937785536)
+#   isbn_list.each do |isbn|
+#     conn = ZOOM::Connection.new.connect("symphony.torontopubliclibrary.ca:2200")
+#     conn.database_name = "unicorn"
+#     conn.lang = "en"
+#     conn.preferred_record_syntax = "MARC21"
+#
+#
+#     results = conn.search "@attr 1=7 #{isbn}"
+#     marc    = results[0].raw
+#     record  = Catalog::MARC::Record.new_from_marc(marc)
+#
+#     marc_recordable        = bib_record_class.new
+#     record.format          = "marc21"
+#     record.marc_recordable = marc_recordable
+#
+#     records << marc_recordable
+#   end
+#
+#
+#   total = nil
+#
+#   time = Benchmark.measure do
+#     result = bib_record_class.bulk_import(
+#       records,
+#       batch_size: batch_size,
+#       batch_progress: progress_callback,
+#       recursive: true
+#     )
+#
+#     num_records = records.size
+#
+#     total = num_records - result.failed_instances.count
+#   end
+#
+#   puts "#{total} records imported in #{time.real} seconds"
+# end
+#
+# puts "Total time (in secs): #{total_time.real}"
+# puts
 
 marc21_glob   = Rails.root.join("data", "marc_toronto_public_library", "{OL, DATA}.*")
 marc21_files  = Dir[marc21_glob]
@@ -115,7 +115,7 @@ total_time = Benchmark.measure do
 
   time = Benchmark.measure do
     result = record_type_class.bulk_import(
-      marc21_records.to_a.take(1000),
+      marc21_records.to_a.take(100),
       batch_size: batch_size,
       batch_progress: progress_callback,
       recursive: true
